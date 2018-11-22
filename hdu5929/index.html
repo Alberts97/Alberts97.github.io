@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="模拟,deque,CCPC,">
 
 
 
@@ -94,16 +94,18 @@
 
 
 
-<meta name="description" content="孤勇之后 世界尽在眼前">
-<meta property="og:type" content="website">
-<meta property="og:title" content="咸鱼の小窝">
-<meta property="og:url" content="https://alberts97.github.io/index.html">
+<meta name="description" content="题目大意：  现有一个栈，请你对它做出如下操作：   PUSH x：将元素x入栈。 POP：将栈顶元素出栈。 REVERSE：将栈内元素翻转。 QUERY：查询从栈顶元素开始到栈底元素的NAND和。    其中NAND的定义为：  0 nand 0 = 1  0 nand 1 = 1  1 nand 0 = 1  1 nand 1 = 0        解题思路：对于操作1和操作2直接模拟就好了，">
+<meta name="keywords" content="模拟,deque,CCPC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU 5929 Basic Data Structure【模拟】【deque】">
+<meta property="og:url" content="https://alberts97.github.io/hdu5929/index.html">
 <meta property="og:site_name" content="咸鱼の小窝">
-<meta property="og:description" content="孤勇之后 世界尽在眼前">
+<meta property="og:description" content="题目大意：  现有一个栈，请你对它做出如下操作：   PUSH x：将元素x入栈。 POP：将栈顶元素出栈。 REVERSE：将栈内元素翻转。 QUERY：查询从栈顶元素开始到栈底元素的NAND和。    其中NAND的定义为：  0 nand 0 = 1  0 nand 1 = 1  1 nand 0 = 1  1 nand 1 = 0        解题思路：对于操作1和操作2直接模拟就好了，">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-22T16:44:29.368Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="咸鱼の小窝">
-<meta name="twitter:description" content="孤勇之后 世界尽在眼前">
+<meta name="twitter:title" content="HDU 5929 Basic Data Structure【模拟】【deque】">
+<meta name="twitter:description" content="题目大意：  现有一个栈，请你对它做出如下操作：   PUSH x：将元素x入栈。 POP：将栈顶元素出栈。 REVERSE：将栈内元素翻转。 QUERY：查询从栈顶元素开始到栈底元素的NAND和。    其中NAND的定义为：  0 nand 0 = 1  0 nand 1 = 1  1 nand 0 = 1  1 nand 1 = 0        解题思路：对于操作1和操作2直接模拟就好了，">
 
 
 
@@ -132,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://alberts97.github.io/">
+  <link rel="canonical" href="https://alberts97.github.io/hdu5929/">
 
 
 
 
 
-  <title>咸鱼の小窝</title>
+  <title>HDU 5929 Basic Data Structure【模拟】【deque】 | 咸鱼の小窝</title>
   
 
 
@@ -163,9 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -300,504 +300,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://alberts97.github.io/hdu5527/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Albert_s">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/Photo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="咸鱼の小窝">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hdu5527/" itemprop="url">HDU 5527 Too Rich【思维】【贪心】</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-11T20:05:06+08:00">
-                2018-10-11
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-23T00:48:23+08:00">
-                2018-11-23
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          题目大意：给你面值为1，5，10，20，50，100，200，500，1000，2000的钞票$c_1、c_2 \ldots c_{10}$，问你给出的这些钱能否恰好凑出p元来，如果可以，最多的数量是多少。
-解题思路：用给出的钱从大到小比较和p的关系凑很容易检查能否凑出p元来，这时是用的最少的数量凑的。
-用最多的数量的话就是用tot - (最少的钱数凑的sum - p的数量)，tot是总数量，sum是总面值和。本来以为到这里就结束了，然而满
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/hdu5527/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-
-    </footer>
-  </div>
-
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://alberts97.github.io/hdu6435/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Albert_s">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/Photo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="咸鱼の小窝">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hdu6435/" itemprop="url">HDU 6435 Problem J.CSGO【思维】【二进制枚举】</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-04T18:43:53+08:00">
-                2018-10-04
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-23T00:46:58+08:00">
-                2018-11-23
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          题目大意：现在有n把主武器和m把副武器，每个武器除了有1个固定属性外，还有k个能互相影响的属性，具体体现在当你选择两把武器时，固定属性带给你的加成是两者的固定属性值之和，而这k个属性带给你的加成是两武器的对应各属性差的绝对值之和。
-现在要你选择一把主武器和一把副武器，使得两武器配合带来的加成最大。
-解题思路：考虑到n和m的范围最大值都是100000，所以直接看搭配方案是不可行的，而属性k最大只有5，我们可以从这里入手。两武器搭配，对应的k个
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/hdu6435/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-
-    </footer>
-  </div>
-
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://alberts97.github.io/hdu5071/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Albert_s">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/Photo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="咸鱼の小窝">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hdu5071/" itemprop="url">HDU 5071 Chat【模拟】【vector】</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T22:56:07+08:00">
-                2018-10-02
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-22T23:24:54+08:00">
-                2018-11-22
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          题目大意：现在有一个聊天界面(可以想象为一个队列)，请你模拟以下操作：
-
-
-Add u： 在队列中加入一个优先级为u的窗口。如果已经存在同优先级的窗口，输出”same priority.”，否则输出 “success.”。
-Close u：将队列中优先级为u的窗口关闭。如果不存在优先级为u的窗口，输出”invalid priority.” 否则输出”close u with c.”，其中c是和优先级为u的窗口的聊天次数。
-Chat w：向当
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/hdu5071/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-
-    </footer>
-  </div>
-
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -827,9 +332,7 @@ Chat w：向当
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/hdu5929/" itemprop="url">HDU 5929 Basic Data Structure【模拟】【deque】</a></h1>
+          <h1 class="post-title" itemprop="name headline">HDU 5929 Basic Data Structure【模拟】【deque】</h1>
         
 
         <div class="post-meta">
@@ -913,37 +416,29 @@ Chat w：向当
       
 
       
-        
-          
-          题目大意：  现有一个栈，请你对它做出如下操作：
+        <h3 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h3><p>  现有一个栈，请你对它做出如下操作：</p>
+<blockquote>
+<ol>
+<li>PUSH x：将元素x入栈。</li>
+<li>POP：将栈顶元素出栈。</li>
+<li>REVERSE：将栈内元素翻转。</li>
+<li>QUERY：查询从栈顶元素开始到栈底元素的<strong>NAND</strong>和。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>其中NAND的定义为：</p>
+<ul>
+<li>0 nand 0 = 1 </li>
+<li>0 nand 1 = 1 </li>
+<li>1 nand 0 = 1 </li>
+<li>1 nand 1 = 0     </li>
+</ul>
+</blockquote>
+<h3 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h3><p>对于操作1和操作2直接模拟就好了，费时的部分是剩余的两个操作。</p>
+<p>考虑到n的范围最大取值为200000，我们可以开个400000的数组，取中间部分为初始起点，当进行操作3的时候直接将头对另一边进行1、2操作就好了。</p>
+<p>观察这个nand运算我们发现，只要和0进行运算的，答案都变成了1，利用这一点我们可以记录0出现的位置，就是出现了0就将它存起来。我们可以也像上面那样进行记录，出于好写我这里直接用的deque。这样，每当查询时我们直接看存起来的0的位置，如果没有0那就数1的个数；如果有的话就看从头开始最后一个出现的0之后有多少个1。这里有个细节要注意，就是当只有1个0的时候，要特别判断一下。</p>
+<h3 id="Mycode："><a href="#Mycode：" class="headerlink" title="Mycode："></a>Mycode：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">200010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> op[<span class="number">11</span>];</span><br><span class="line"><span class="keyword">int</span> t, n, x, rig, lef, a[N&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> cas = <span class="number">1</span>; cas &lt;= t; ++cas)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; Q;</span><br><span class="line">        rig = <span class="number">200001</span>;</span><br><span class="line">        lef = rig - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d:\n"</span>, cas);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">while</span>(n--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%s"</span>, op);</span><br><span class="line">            <span class="keyword">if</span>(op[<span class="number">0</span>] == <span class="string">'P'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(op[<span class="number">1</span>] == <span class="string">'U'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">                    <span class="keyword">if</span>(flag)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">if</span>(!x)  Q.push_back(rig);</span><br><span class="line">                        a[rig++] = x;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">if</span>(!x)  Q.push_front(lef);</span><br><span class="line">                        a[lef--] = x;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(flag)</span><br><span class="line">                    &#123;</span><br><span class="line">                        --rig;</span><br><span class="line">                        <span class="keyword">if</span>(!a[rig]) Q.pop_back();</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        ++lef;</span><br><span class="line">                        <span class="keyword">if</span>(!a[lef]) Q.pop_front();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(op[<span class="number">0</span>] == <span class="string">'Q'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(lef + <span class="number">1</span> == rig)</span><br><span class="line">                    <span class="built_in">puts</span>(<span class="string">"Invalid."</span>);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(Q.empty())</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (rig - lef - <span class="number">1</span>) &amp; <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(flag)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ((Q.front() - lef - <span class="number">1</span>) +(rig - <span class="number">1</span> != Q.front())) &amp; <span class="number">1</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ((rig - Q.back() - <span class="number">1</span>) +(lef + <span class="number">1</span> != Q.back())) &amp; <span class="number">1</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(op[<span class="number">0</span>] == <span class="string">'R'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                flag = !flag;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-PUSH x：将元素x入栈。
-POP：将栈顶元素出栈。
-REVERSE：将栈内元素翻转。
-QUERY：查询从栈顶元素开始到栈底元素的NAND和。
-
-
-
-其中NAND的定义为：
-
-0 nand 0 = 1 
-0 nand 1 = 1 
-1 nand 0 = 1 
-1 nand 1 = 0     
-
-
-解题思路：对于操作1和操作2直接模拟就好了，费时的部分是剩余的两个操作。
-考虑到n的范围
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/hdu5929/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
     
@@ -953,19 +448,92 @@ QUERY：查询从栈顶元素开始到栈底元素的NAND和。
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
 
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.png" alt="Albert_s WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.jpg" alt="Albert_s Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Albert_s
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://alberts97.github.io/hdu5929/" title="HDU 5929 Basic Data Structure【模拟】【deque】">https://alberts97.github.io/hdu5929/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/模拟/" rel="tag"># 模拟</a>
+          
+            <a href="/tags/deque/" rel="tag"># deque</a>
+          
+            <a href="/tags/CCPC/" rel="tag"># CCPC</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/hdu5071/" rel="prev" title="HDU 5071 Chat【模拟】【vector】">
+                HDU 5071 Chat【模拟】【vector】 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
 
     </footer>
@@ -977,10 +545,16 @@ QUERY：查询从栈顶元素开始到栈底元素的NAND和。
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+
+
+      
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -988,6 +562,12 @@ QUERY：查询从栈顶元素开始到栈底元素的NAND和。
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTA2Ni8xNzU5MQ=="></div>
+    
+  </div>
+
 
         </div>
         
@@ -1008,8 +588,17 @@ QUERY：查询从栈顶元素开始到栈底元素的NAND和。
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/uploads/Photo.jpg" alt="Albert_s">
           <p class="site-author-name" itemprop="name">Albert_s</p>
@@ -1138,6 +727,22 @@ QUERY：查询从栈顶元素开始到栈底元素的NAND和。
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目大意："><span class="nav-number">1.</span> <span class="nav-text">题目大意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路："><span class="nav-number">2.</span> <span class="nav-text">解题思路：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mycode："><span class="nav-number">3.</span> <span class="nav-text">Mycode：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1262,10 +867,10 @@ QUERY：查询从栈顶元素开始到栈底元素的NAND和。
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -1294,6 +899,17 @@ QUERY：查询从栈顶元素开始到栈底元素的NAND和。
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
