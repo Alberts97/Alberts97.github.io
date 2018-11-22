@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[qwq]]></title>
+    <url>%2Fqwq%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[HDU 6435 Problem J.CSGO【思维】【二进制枚举】]]></title>
+    <url>%2Fhdu6435%2F</url>
+    <content type="text"><![CDATA[QAQ 题目大意：现在有n把主武器和m把副武器，每个武器除了有1个固定属性外，还有k个能互相影响的属性，具体体现在当你选择两把武器时，固定属性带给你的加成是两者的固定属性值之和，而这k个属性带给你的加成是两武器的对应各属性差的绝对值之和。 现在要你选择一把主武器和一把副武器，使得两武器配合带来的加成最大。 解题思路：考虑到n和m的范围最大值都是100000，所以直接看搭配方案是不可行的，而属性k最大只有5，我们可以从这里入手。两武器搭配，对应的k个属性要么是加上带来的加成，要么是减去带来的加成，所以我们可以把每一把武器的每一种状态都枚举出来，就是$$2^k$$种加减组合，枚举的同时更新此状态下的最大值，对于最后的答案就是将主武器的这个集合和副武器的补集求和。 Mycode： 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cmath&gt;using namespace std;typedef long long ll;const int INF = 0x3f3f3f3f;int t, n, m, k, up;ll v, a[6], MW[44], SW[44];int main()&#123; scanf("%d", &amp;t); while(t--) &#123; scanf("%d%d%d", &amp;n, &amp;m, &amp;k); up = 1 &lt;&lt; k; memset(MW, -INF, sizeof(MW)); memset(SW, -INF, sizeof(SW)); for(int o = 0; o &lt; n; ++o) &#123; scanf("%lld", &amp;v); for(int i = 0; i &lt; k; ++i) scanf("%lld", &amp;a[i]); for(int i = 0; i &lt; up; ++i) &#123; ll tem = v; for(int j = 0; j &lt; k; ++j) &#123; if(i &amp; (1 &lt;&lt; j)) tem += a[j]; else tem -= a[j]; &#125; MW[i] = max(MW[i], tem); &#125; &#125; /*for(int o = 0; o &lt; up; ++o) cout &lt;&lt; MW[o] &lt;&lt; " "; cout &lt;&lt; '\n';*/ for(int o = 0; o &lt; m; ++o) &#123; scanf("%lld", &amp;v); for(int i = 0; i &lt; k; ++i) scanf("%lld", &amp;a[i]); for(int i = 0; i &lt; up; ++i) &#123; ll tem = v; for(int j = 0; j &lt; k; ++j) &#123; if(i &amp; (1 &lt;&lt; j)) tem += a[j]; else tem -= a[j]; &#125; SW[i] = max(SW[i], tem); &#125; &#125; /*for(int o = 0; o &lt; up; ++o) cout &lt;&lt; SW[o] &lt;&lt; " "; cout &lt;&lt; '\n';*/ ll res = -INF; for(int o = 0; o &lt; up; ++o) res = max(res, MW[o] + SW[up - o - 1]); printf("%lld\n", res); &#125; return 0;&#125;]]></content>
+      <tags>
+        <tag>思维</tag>
+        <tag>二进制</tag>
+      </tags>
   </entry>
 </search>
