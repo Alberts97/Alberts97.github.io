@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[SDNU ACM-ICPC 2018 Training Weekly Contest(Freshman/11-11)]]></title>
+    <url>%2Fsdnu-2018-3%2F</url>
+    <content type="text"><![CDATA[题目难度分析及考察内容：easy：1004(C语言)1001(快速幂模板，周五晚刚讲的)1005(简单字符串处理)1006(模拟 + 细节)medium：1002(规律||直接做&lt;数组开全局就能开的下了&gt;)1003(中等字符串处理)1008(结构体排序&lt;课上没讲吗?那就趁这个机会学一下&gt;)1007(题意理解)hard：1009(map + 题意)发现的问题： 乱加getchar()。(王某) 数组不开全局，导致RE。(孙某) 8102年了，不知道递推，求fibonacci数列还用递归(第二题没做出来的xxxxxxx) 不跟榜，在一个题上从开场WA到结束。 对罚时还没概念，这个慢慢培养吧，身处弱校 + 自身菜鸡很多时候都靠罚时蹭个牌。。 说明：这些题目一周内完全可以补完，下周一至周四尽量补完。 充分思考后再看思路，最后再看代码。AC过也最好看看，说不定就学到新知识了呢。 一定要保证最后能自己写出来并AC掉。 题解1349.快速幂入门快速幂模板题，签到 Code:无。 1356.Fibonacci题意：给出一个序列，序列的定义为 $\operatorname{F[i]}=\begin{cases}7 &amp; \text{i = 0 } \\text 11 &amp; \text{i = 1}\ F[n-1] + F[n-2] &amp; \text{i $\geq$ 2 } \\end{cases}$ 问F[n] % 3 是否等于 0 思路： 直接做(怎么还有人用递归？这种可以递推的别递归啊，看一下n的范围，递归这不明摆着过不了吗) 可以直接做的原因是 $(a + b) \% m = ((a \% m) + (b \% m)) \% m$。 12345678910111213141516171819202122#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cmath&gt;using namespace std;const int N = 1000010;int f[N], n;void init()&#123; f[0] = 7, f[1] = 11; for(int i = 2; i &lt; N; ++i) f[i] = (f[i - 1] + f[i - 2]) % 3;&#125;int main()&#123; init(); while(~scanf("%d", &amp;n)) puts(f[n] ? "no" : "yes"); return 0;&#125; 找规律(写出几项来就发现了) 123456789101112131415161718192021222324#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cmath&gt;using namespace std;//int f[111];int main()&#123; /* f[0] = 7, f[1] = 11; for(int i = 2; i &lt;= 20; ++i) f[i] = f[i - 1] + f[i - 2]; for(int i = 0; i &lt;= 20; ++i) cout &lt;&lt; f[i] % 3 &lt;&lt; ' '; cout &lt;&lt; '\n'; */ int n; while(~scanf("%d", &amp;n)) puts((n - 2) % 4 ? "no" : "yes"); return 0;&#125; 1357.Text Reverse题意：将输入的每个字符进行翻转。 思路：直接做 代码：用string的reverse函数可以简单快速的实现 123456789101112131415161718192021222324252627282930#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cmath&gt;#include &lt;sstream&gt;using namespace std;int t;string a, s;int main()&#123; scanf("%d", &amp;t); getchar(); while(t--) &#123; getline(cin, s); //读取一行 stringstream ss(s); //创建一个“字符串流” bool flag = 0; //控制空格 while(ss &gt;&gt; a) &#123; if(flag) cout &lt;&lt; ' '; flag = 1; reverse(a.begin(), a.end()); cout &lt;&lt; a; &#125; cout &lt;&lt; '\n'; &#125; return 0;&#125; 1358.Buildings题意：记录只有0和1构成的$N \times M$的矩阵中有多少个1。 思路：直接做(疑问：用数组干啥啊？)。 123456789101112131415161718192021222324#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cmath&gt;using namespace std;int t, n, m, tem, res;int main()&#123; scanf("%d", &amp;t); while(t--) &#123; res = 0; scanf("%d%d", &amp;n, &amp;m); for(int i = 0; i &lt; n * m; ++i) &#123; scanf("%d", &amp;tem); res += tem; &#125; printf("%d\n", res); &#125; return 0;&#125; 1359.GPA题意：自己翻译。 思路：直接做。 1234567891011121314151617181920212223242526272829303132333435363738394041424344#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cmath&gt;using namespace std;bool flag;int val[256];char s[1111];int cnt, len, sum;void init()&#123; memset(val, -1, sizeof(val)); val['A'] = 4; val['B'] = 3; val['C'] = 2; val['D'] = 1; val['F'] = 0;&#125;int main()&#123; init(); while(gets(s)) &#123; flag = 1; sum = cnt = 0; len = strlen(s); for(int i = 0; i &lt; len; ++i) &#123; if(s[i] == ' ') continue; if(val[s[i]] == -1) &#123; flag = 0; break; &#125; ++cnt; sum += val[s[i]]; &#125; if(!flag) puts("Unknown letter grade in input"); else printf("%.2f\n", (double)sum / cnt); &#125; return 0;&#125; 1361.Grasshopper And the String题意：找出一个字符串的两个相邻的元音字母(‘A’, ‘E’, ‘I’, ‘O’, ‘U’ and ‘Y’)的最大位置。 思路：直接做。记得初始位置和结束位置特判。 123456789101112131415161718192021222324252627282930313233#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cmath&gt;using namespace std;char s[111];bool judge(char ch)&#123; if(ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' || ch =='Y') return true; return false;&#125;int main()&#123; while(~scanf("%s", s)) &#123; int len = strlen(s); int res = 0, tmp = -1; for(int i = 0; i &lt; len; ++i) &#123; if(judge(s[i])) &#123; res = max(res, i - tmp); tmp = i; &#125; &#125; res = max(res, len - tmp); printf("%d\n", res); &#125; return 0;&#125; 1362.Parade题意：阅读理解题，这里不写了，自己细细品味。 思路：嗯。 123456789101112131415161718192021222324252627282930313233343536373839#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cmath&gt;using namespace std;const int N = 100010;int n, res, sum1, sum2, a[N], b[N];int t1, t2, best;int main()&#123; while(~scanf("%d", &amp;n)) &#123; sum1 = sum2 = 0; for(int i = 1; i &lt;= n; ++i) &#123; scanf("%d%d", &amp;a[i], &amp;b[i]); sum1 += a[i]; sum2 += b[i]; &#125; res = 0; best = abs(sum1 - sum2); for(int i = 1; i &lt;= n; ++i) &#123; t1 = sum1 - a[i] + b[i]; t2 = sum2 - b[i] + a[i]; if(abs(t1 - t2) &gt; best) &#123; best = abs(t1 - t2); res = i; &#125; &#125; printf("%d\n", res); &#125; return 0;&#125; 1363.Solving Order题意：嗯。 思路：结构体排序。 12345678910111213141516171819202122232425262728293031#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cmath&gt;using namespace std;int t, n, m;struct node&#123; int cnt; char color[11];&#125; a[11];bool cmp(node u, node v)&#123; return u.cnt &gt; v.cnt;&#125;int main()&#123; scanf("%d", &amp;t); while(t--) &#123; scanf("%d", &amp;n); for(int i = 1; i &lt;= n; ++i) scanf("%s%d", &amp;a[i].color, &amp;a[i].cnt); sort(a + 1, a + n + 1, cmp); for(int i = 1; i &lt;= n; ++i) printf("%s%c", a[i].color, i == n ? '\n' : ' '); &#125; return 0;&#125; 1533.寻找复读机题意：中文题面。 思路：map标记，直接找。 坑点： 1. 卡PE 2. `找出所有可能是复读机的群友`(我们只能确定出明确不是复读机的群友，剩下的不确定的都可能是)。 1234567891011121314151617181920212223242526272829303132333435363738#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cmath&gt;#include &lt;map&gt;using namespace std;const int N = 1111;string s[N];int n, m, a[N];map&lt;int, bool&gt; MP;int main()&#123; while(cin &gt;&gt; n &gt;&gt; m) &#123; for(int i = 1; i &lt;= m; ++i) cin &gt;&gt; a[i] &gt;&gt; s[i]; for(int i = 1; i &lt;= n; ++i) MP[i] = 1; MP[a[1]] = 0; for(int i = 2; i &lt;= m; ++i) if(s[i] != s[i - 1]) MP[a[i]] = 0; bool flag = 0; for(int i = 1; i &lt;= n; ++i) &#123; if(!MP[i]) continue; if(flag) cout &lt;&lt; ' '; flag = 1; cout &lt;&lt; i; &#125; cout &lt;&lt; '\n'; &#125; return 0;&#125; END： 每当在书中读及那些卑微的努力，都觉得感动且受震撼。也许每个人在发出属于自己的光芒之前，都经历了无数的煎熬，漫长的黑夜，无尽的孤独，甚至不断的嘲讽和否定，但好在那些踮脚的少年，最后都得到了自己想要的一切。]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>解题报告</tag>
+        <tag>SDNU</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[HDU 5527 Too Rich【思维】【贪心】]]></title>
     <url>%2Fhdu-5527%2F</url>
     <content type="text"><![CDATA[题目大意：给你面值为1，5，10，20，50，100，200，500，1000，2000的钞票$c_1、c_2 \ldots c_{10}$，问你给出的这些钱能否恰好凑出p元来，如果可以，最多的数量是多少。 解题思路：用给出的钱从大到小比较和p的关系凑很容易检查能否凑出p元来，这时是用的最少的数量凑的。 用最多的数量的话就是用tot - (最少的钱数凑的sum - p的数量)，tot是总数量，sum是总面值和。本来以为到这里就结束了，然而满足上面这是最少使用量的前提是小面额是大面额的因子，即任意数量的大面额总能用若干小面额凑出来，而在本题中20、50，200、500不满足。对于这种情况的解法，我们可以将两个50的合成一个100的，两个500的合成一个1000的来算，但是答案可能还有用到1个50/500的情况。好在他们的搭配只有4种，这时我们只要枚举这4种情况就好了。 Mycode：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cmath&gt;using namespace std;const int INF = 0x3f3f3f3f;int t, p, tot, sum;int a[11], b[11], val[11];void init()&#123; val[0] = 1, val[1] = 5, val[2] = 10; val[3] = 20, val[4] = 50, val[5] = 100; val[6] = 200, val[7] = 500, val[8] = 1000; val[9] = 2000;&#125;void init2()&#123; for(int i = 0; i &lt; 10; ++i) b[i] = a[i];&#125;int solve(int num)&#123; int ans = 0, tem; for(int i = 9; i &gt;= 0; --i) &#123; if(i == 4 || i == 7) &#123; tem = min(num / (val[i] * 2), b[i] / 2); num -= tem * val[i] * 2; ans += tem * 2; &#125; else &#123; tem = min(num / val[i], b[i]); num -= tem * val[i]; ans += tem; &#125;// cout &lt;&lt; i &lt;&lt; " " &lt;&lt; tem &lt;&lt; endl; &#125; //cout &lt;&lt; "ans = " &lt;&lt; ans &lt;&lt; '\n'; if(num) return INF; return ans;&#125;int main()&#123; init(); scanf("%d", &amp;t); while(t--) &#123; tot = sum = 0; scanf("%d", &amp;p); for(int i = 0; i &lt; 10; ++i) &#123; scanf("%d", &amp;a[i]); tot += a[i]; sum += a[i] * val[i]; &#125; //cout &lt;&lt; "tot = " &lt;&lt; tot &lt;&lt; " sum = " &lt;&lt; sum &lt;&lt; '\n'; if(sum &lt; p) &#123; puts("-1"); continue; &#125; //凑组成p最多的，就是sum - p最少的，tot - res就是答案 p = sum - p; int res = INF; for(int i = 0; i &lt; 2; ++i) &#123; for(int j = 0; j &lt; 2; ++j) &#123; init2(); int tem = p; if(i &amp;&amp; b[4]) &#123; --b[4]; tem -= 50; &#125; if(j &amp;&amp; b[7]) &#123; --b[7]; tem -= 500; &#125; if(tem &lt; 0) continue;// cout &lt;&lt; "res = " &lt;&lt; res &lt;&lt; endl; res = min(res, solve(tem) + i + j); &#125; &#125; printf("%d\n", (res == INF ? -1 : tot - res)); &#125; return 0;&#125;]]></content>
@@ -10,8 +22,8 @@
       <tags>
         <tag>贪心</tag>
         <tag>HDU</tag>
-        <tag>ICPC</tag>
         <tag>思维</tag>
+        <tag>ICPC</tag>
       </tags>
   </entry>
   <entry>
@@ -79,8 +91,8 @@
       <tags>
         <tag>模拟</tag>
         <tag>HDU</tag>
-        <tag>vector</tag>
         <tag>ICPC</tag>
+        <tag>vector</tag>
       </tags>
   </entry>
   <entry>
@@ -132,8 +144,8 @@
       </categories>
       <tags>
         <tag>HDU</tag>
-        <tag>ICPC</tag>
         <tag>思维</tag>
+        <tag>ICPC</tag>
       </tags>
   </entry>
   <entry>
@@ -260,8 +272,8 @@
       </categories>
       <tags>
         <tag>HDU</tag>
-        <tag>剪枝</tag>
         <tag>多校联合</tag>
+        <tag>剪枝</tag>
       </tags>
   </entry>
   <entry>
