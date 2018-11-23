@@ -24,7 +24,48 @@
       <tags>
         <tag>HDU</tag>
         <tag>思维</tag>
+        <tag>多校联合</tag>
         <tag>二进制</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HDU 6266 Hakase and Nano【规律】]]></title>
+    <url>%2Fhdu6266%2F</url>
+    <content type="text"><![CDATA[题目大意：H和N玩取石子游戏，给出n堆石子，每堆$a_i$个，H每回合取两次，N每回合取一次，每次都只能从某一堆石子中取出至少一个石子，取走最后一个(堆)石子的获得胜利。 规定先后手，两者都采取最佳策略，问最后H能否获胜。 解题思路：H先手时，经过手算(?)我们发现当n % 3 == 0 &amp;&amp; n个石子全为1的时候先手必输。所以当H后手的时候，只要先手通过一步操作使当前局面变成上述局面H就输了。 这样只需要记录一下所给石子中不为0的石子堆的数目，根据这个输出答案就可以了。 Mycode：123456789101112131415161718192021222324252627282930313233343536373839#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cmath&gt;using namespace std;int t, n, k, a, o;int main()&#123; scanf("%d", &amp;t); while(t--) &#123; scanf("%d%d",&amp;n,&amp;k); o = 0; for(int i = 0; i &lt; n; ++i) &#123; scanf("%d", &amp;a); o += (a &gt; 1); &#125; if(k == 1) &#123; if(n % 3 == 0 &amp;&amp; o == 0) puts("No"); else puts("Yes"); &#125; else &#123; if((n - 1) % 3 == 0 &amp;&amp; o &lt;= 1) puts("No"); else if(n % 3 == 0 &amp;&amp; o == 1) puts("No"); else puts("Yes"); &#125; &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>HDU</tag>
+        <tag>规律</tag>
+        <tag>CCPC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HDU 6418 Rikka with Stone-Paper-Scissors【思维】【期望】]]></title>
+    <url>%2Fhdu6418%2F</url>
+    <content type="text"><![CDATA[题目大意：现在A和B进行剪刀石头布的游戏，两者中赢得一方会+1分，输得一方-1分，平局分不变。已知A的剪刀石头布各出的次数为a、b、c，B的为a’、b‘、c’(保证A和B出的总次数相同)，B知道A的牌组组成，求当B按照最优策略出牌时，B最大的得分期望。 解题思路：得分期望 = $\sum_{k=1}^n​$ 得分 * 得分概率。 B要获得最大分数，当A出剪刀时，B要出石头，此时B可以得到A出剪刀的分数，也可以失去A出布的分数，则A出剪刀时，B的得分期望为$ b’ \times \frac{a}{a + b + c} - b’ \times \frac{c}{a + b + c} $，依次类推，可以得出答案为$\frac{a’ \times (c - b) + b’ \times (a - c) + c’ \times (b - a)}{a + b + c}$。 最后注意化简一下就好了。 Mycode：12345678910111213141516171819202122232425262728293031323334353637383940414243#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cmath&gt;using namespace std;typedef long long ll;ll a, b, c, a1, b1, c1;ll gcd(ll a, ll b)&#123; return b == 0 ? a : gcd(b, a % b);&#125;int main()&#123; int t; scanf("%d", &amp;t); while(t--) &#123; scanf("%lld%lld%lld%lld%lld%lld", &amp;a, &amp;b, &amp;c, &amp;a1, &amp;b1, &amp;c1); ll mu = a + b + c; ll zi = a1 * (c - b) + b1 * (a - c) + c1 * (b - a); if(zi == 0) puts("0"); else &#123; bool f = 0; if(zi &lt; 0) &#123; zi = -zi; f = 1; &#125; ll g = gcd(zi, mu); zi /= g; mu /= g; if(f) putchar('-'); if(mu == 1) printf("%lld\n", zi); else printf("%lld/%lld\n", zi, mu); &#125; &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>HDU</tag>
+        <tag>思维</tag>
+        <tag>多校联合</tag>
+        <tag>期望</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HDU 6406 Taotao Picks Apples【思维】【线段树】]]></title>
+    <url>%2Fhdu6406%2F</url>
+    <content type="text"><![CDATA[题目大意：现在有一个长度为n的序列，给出m个操作，每次操作都是将第p个位置处的数值替换为q，问每次操作后以第一个元素为起点的LIS的长度是多少。 解题思路：利用线段树维护区间最大值 &amp;&amp; 以区间左端点为起点的LIS的长度，这样答案就是以1为起点的LIS长度。对于每次查询只要替换对应位置上的值和更新树就好了，查询完后记得改回来。 有几点比较巧妙的地方稍微写一下： 区间的LIS长度 = 左子树的LIS长度 + 以左子树最大值为起点的右子树的LIS长度。 计算以某个值为起点的LIS长度时，继续比较这个值和此区间的左子树的最大值，大于等于就查询右子树，否则就返回继续查询左子树的LIS长度 + 用左子树的最大值查询右子树的LIS长度(写的很乱，直接看代码的calc函数和pushup函数好了)。 Mycode：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182#include &lt;cstdio&gt;#include &lt;iostream&gt;#include &lt;cstring&gt;#include &lt;algorithm&gt;#include &lt;cmath&gt;using namespace std;const int N = 1e5+5;int t, n, m, pos, val, a[N];struct node&#123; int l, r; int maxx, val;&#125; tree[N&lt;&lt;2];int calc(int val, int rt)&#123; if(tree[rt].l == tree[rt].r) return val &lt; tree[rt].maxx; if(tree[rt&lt;&lt;1].maxx &lt;= val) return calc(val, rt&lt;&lt;1|1); else return calc(val, rt&lt;&lt;1) + (tree[rt].val - tree[rt&lt;&lt;1].val);&#125;void pushup(int rt)&#123; tree[rt].maxx = max(tree[rt&lt;&lt;1].maxx, tree[rt&lt;&lt;1|1].maxx); tree[rt].val = tree[rt&lt;&lt;1].val + calc(tree[rt&lt;&lt;1].maxx, rt&lt;&lt;1|1);&#125;void build(int l, int r, int rt)&#123; tree[rt].l = l; tree[rt].r = r; if(l == r) &#123; tree[rt].maxx = a[l]; tree[rt].val = 1; return ; &#125; int mid = l + r &gt;&gt; 1; build(l, mid, rt &lt;&lt; 1); build(mid + 1, r, rt &lt;&lt; 1 | 1); pushup(rt);&#125;void update(int pos, int val, int rt)&#123; if(tree[rt].l == tree[rt].r) &#123; tree[rt].maxx = val; return ; &#125; int mid = tree[rt].l + tree[rt].r &gt;&gt; 1; if(pos &lt;= mid) update(pos, val, rt&lt;&lt;1); else update(pos, val, rt&lt;&lt;1|1); pushup(rt);&#125;int main()&#123; scanf("%d", &amp;t); while(t--) &#123; scanf("%d%d", &amp;n, &amp;m); for(int i = 1; i &lt;= n; ++i) scanf("%d", &amp;a[i]); build(1, n, 1); while(m--) &#123; scanf("%d%d", &amp;pos, &amp;val); update(pos, val, 1); printf("%d\n", tree[1].val); update(pos, a[pos], 1); &#125; &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>HDU</tag>
+        <tag>思维</tag>
+        <tag>线段树</tag>
         <tag>多校联合</tag>
       </tags>
   </entry>
@@ -50,9 +91,10 @@
         <category>ACM</category>
       </categories>
       <tags>
+        <tag>HDU</tag>
         <tag>模拟</tag>
-        <tag>deque</tag>
         <tag>CCPC</tag>
+        <tag>deque</tag>
       </tags>
   </entry>
 </search>
