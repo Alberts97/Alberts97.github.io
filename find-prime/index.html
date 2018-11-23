@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="知识点,素数,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="如何快速找到第n个素数呢？看到这个问题后我的第一思路就是用筛法筛出素数数组。 Mycode:1234567891011121314151617181920212223242526#include &amp;lt;bits/stdc++.h&amp;gt;using namespace std;const int MAX = 5000005;int pri[MAX];int main()&amp;#123;    mems">
+<meta name="keywords" content="知识点,素数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【知识点】 ---寻找第n个素数">
+<meta property="og:url" content="https://alberts97.github.io/find-prime/index.html">
+<meta property="og:site_name" content="咸鱼の小窝">
+<meta property="og:description" content="如何快速找到第n个素数呢？看到这个问题后我的第一思路就是用筛法筛出素数数组。 Mycode:1234567891011121314151617181920212223242526#include &amp;lt;bits/stdc++.h&amp;gt;using namespace std;const int MAX = 5000005;int pri[MAX];int main()&amp;#123;    mems">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-23T15:45:00.678Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【知识点】 ---寻找第n个素数">
+<meta name="twitter:description" content="如何快速找到第n个素数呢？看到这个问题后我的第一思路就是用筛法筛出素数数组。 Mycode:1234567891011121314151617181920212223242526#include &amp;lt;bits/stdc++.h&amp;gt;using namespace std;const int MAX = 5000005;int pri[MAX];int main()&amp;#123;    mems">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://alberts97.github.io/find-prime/">
+
+
+
+
+
+  <title>【知识点】 ---寻找第n个素数 | 咸鱼の小窝</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">咸鱼の小窝</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">快乐咸鱼每一天，咸鱼咸鱼咸~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://alberts97.github.io/find-prime/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Albert_s">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/Photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼の小窝">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【知识点】 ---寻找第n个素数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-05T23:44:10+08:00">
+                2017-06-05
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-23T23:45:00+08:00">
+                2018-11-23
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>如何快速找到第n个素数呢？<br>看到这个问题后我的第一思路就是用筛法筛出素数数组。</p>
+<p><strong><em>Mycode:</em></strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX = <span class="number">5000005</span>;</span><br><span class="line"><span class="keyword">int</span> pri[MAX];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(pri, <span class="number">0</span>, <span class="keyword">sizeof</span>(pri));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= MAX; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!pri[i]) pri[++pri[<span class="number">0</span>]] = i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= pri[<span class="number">0</span>] &amp;&amp; pri[j] &lt;= MAX / i; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            pri[pri[j]*i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(i % pri[j] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> cas = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n) &amp;&amp; n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case %d: %d\n"</span>,++cas,pri[n]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种方法在n比较小的时候还是快的，但是当n变得很大，比如当n达到3000000时，1s是跑不完的。<del>在此基础上稍微优化一下，多交几遍说不定就卡过去了。</del>经过优化，速度确实快了点：</p>
+<p><strong><em>Code：</em></strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX = <span class="number">50000000</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> vis[MAX];</span><br><span class="line"><span class="keyword">int</span> prim[<span class="number">3100005</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d = <span class="built_in">sqrt</span>(<span class="number">1.0</span>*MAX);</span><br><span class="line">    <span class="keyword">int</span> s = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= d; i += <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span>(!vis[i])</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">3</span>*i; j &lt;= MAX; j += <span class="number">2</span>*i)</span><br><span class="line">                vis[j] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">    prim[++len] = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= MAX; i += <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span>(!vis[i])</span><br><span class="line">            prim[++len]  = i;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> cas = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n) &amp;&amp; n)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case %d: %d\n"</span>,++cas, prim[n]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是还是达不到更快的要求。怎么办？原来有专门的一种算法，可以很快的解决此问题。<a href="http://blog.csdn.net/Nemaleswang/article/details/52582684" target="_blank" rel="noopener">原文链接。</a><br>源代码链接：<a href="http://paste.ubuntu.com/24702943/" target="_blank" rel="noopener">http://paste.ubuntu.com/24702943/</a></p>
+<p><strong><em>Code：</em></strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdtr1c++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXM 10001</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXP 40000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 400000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> clr(ar) memset(ar, 0, sizeof(ar))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> read() freopen(<span class="meta-string">"lol.txt"</span>, <span class="meta-string">"r"</span>, stdin)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dbg(x) cout &lt;&lt; #x &lt;&lt; <span class="meta-string">" = "</span> &lt;&lt; x &lt;&lt; endl</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> chkbit(ar, i) (((ar[(i) &gt;&gt; 6]) &amp; (1 <span class="meta-string">&lt;&lt; (((i) &gt;&gt; 1) &amp; 31))))</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> setbit(ar, i) (((ar[(i) &gt;&gt; 6]) |= (1 <span class="meta-string">&lt;&lt; (((i) &gt;&gt; 1) &amp; 31))))</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> isprime(x) (( (x) &amp;&amp; ((x)&amp;1) &amp;&amp; (!chkbit(ar, (x)))) || ((x) == 2))</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> pcf</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> dp[MAXN][MAXM];</span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span> ar[(MAX &gt;&gt; <span class="number">6</span>) + <span class="number">5</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> len = <span class="number">0</span>, primes[MAXP], counter[MAX];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sieve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    setbit(ar, <span class="number">0</span>), setbit(ar, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; (i * i) &lt; MAX; i++, i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!chkbit(ar, i))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> k = i &lt;&lt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = (i * i); j &lt; MAX; j += k) setbit(ar, j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; MAX; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        counter[i] = counter[i - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> (isprime(i)) primes[len++] = i, counter[i]++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Sieve();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">0</span>; n &lt; MAXN; n++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">0</span>; m &lt; MAXM; m++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!n) dp[n][m] = m;</span><br><span class="line">            <span class="keyword">else</span> dp[n][m] = dp[n - <span class="number">1</span>][m] - dp[n - <span class="number">1</span>][m / primes[n - <span class="number">1</span>]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">phi</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> m, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> m;</span><br><span class="line">    <span class="keyword">if</span> (primes[n - <span class="number">1</span>] &gt;= m) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (m &lt; MAXM &amp;&amp; n &lt; MAXN) <span class="keyword">return</span> dp[n][m];</span><br><span class="line">    <span class="keyword">return</span> phi(m, n - <span class="number">1</span>) - phi(m / primes[n - <span class="number">1</span>], n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">Lehmer</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (m &lt; MAX) <span class="keyword">return</span> counter[m];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> w, res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i, a, s, c, x, y;</span><br><span class="line">    s = <span class="built_in">sqrt</span>(<span class="number">0.9</span> + m), y = c = cbrt(<span class="number">0.9</span> + m);</span><br><span class="line">    a = counter[y], res = phi(m, a) + a - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = a; primes[i] &lt;= s; i++) res = res - Lehmer(m / primes[i]) + Lehmer(primes[i]) - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">solve</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j, k, l;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> x, y, res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; pcf::len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        x = pcf::primes[i], y = n / x;</span><br><span class="line">        <span class="keyword">if</span> ((x * x) &gt; n) <span class="keyword">break</span>;</span><br><span class="line">        res += (pcf::Lehmer(y) - pcf::Lehmer(x));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; pcf::len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        x = pcf::primes[i];</span><br><span class="line">        <span class="keyword">if</span> ((x * x * x) &gt; n) <span class="keyword">break</span>;</span><br><span class="line">        res++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    pcf::init();</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> n, res,L,R,M,ca=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;n) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        L=<span class="number">2</span>;</span><br><span class="line">        R=<span class="number">1e8</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(L&lt;R)</span><br><span class="line">        &#123;</span><br><span class="line">            M=(L+R)/<span class="number">2</span>;</span><br><span class="line">            res=pcf::Lehmer(M);</span><br><span class="line">            <span class="keyword">if</span>(res&gt;=n) R=M;</span><br><span class="line">            <span class="keyword">else</span> L=M+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case %lld: %lld\n"</span>,ca++,L);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然还有大神用了分块筛的方法。那个pos数组是以50000为间隔的前面几个块素数个数，是用之前的代码本地跑出来的，就是说1-5W有多少个素数，1-10w有多少个素数这样子。然后每次输入n找到他在哪个区间内，再单独筛出这个区间内的素数就好了。真的很厉害Orz。源代码链接：<a href="http://paste.ubuntu.com/24702950/" target="_blank" rel="noopener">http://paste.ubuntu.com/24702950/</a></p>
+<p><strong><em>Code：</em></strong><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MIN(a,b) (((a)&lt;(b))?(a):(b))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> pos[<span class="number">1005</span>]= &#123;<span class="number">-1</span>,<span class="number">5133</span>,<span class="number">9592</span>,<span class="number">13848</span>,<span class="number">17984</span>,<span class="number">22044</span>,<span class="number">25997</span>,<span class="number">29977</span>,<span class="number">33860</span>,<span class="number">37706</span>,<span class="number">41538</span>,<span class="number">45322</span>,<span class="number">49098</span>,<span class="number">52831</span>,<span class="number">56543</span>,<span class="number">60238</span>,<span class="number">63951</span>,<span class="number">67617</span>,<span class="number">71274</span>,<span class="number">74907</span>,<span class="number">78498</span>,<span class="number">82134</span>,<span class="number">85714</span>,<span class="number">89302</span>,<span class="number">92938</span>,<span class="number">96469</span>,<span class="number">100021</span>,<span class="number">103544</span>,<span class="number">107126</span>,<span class="number">110630</span>,<span class="number">114155</span>,<span class="number">117663</span>,<span class="number">121127</span>,<span class="number">124634</span>,<span class="number">128141</span>,<span class="number">131608</span>,<span class="number">135072</span>,<span class="number">138542</span>,<span class="number">142029</span>,<span class="number">145502</span>,<span class="number">148933</span>,<span class="number">152382</span>,<span class="number">155805</span>,<span class="number">159250</span>,<span class="number">162662</span>,<span class="number">166081</span>,<span class="number">169511</span>,<span class="number">172873</span>,<span class="number">176302</span>,<span class="number">179684</span>,<span class="number">183072</span>,<span class="number">186462</span>,<span class="number">189880</span>,<span class="number">193256</span>,<span class="number">196645</span>,<span class="number">199993</span>,<span class="number">203362</span>,<span class="number">206789</span>,<span class="number">210109</span>,<span class="number">213453</span>,<span class="number">216816</span>,<span class="number">220136</span>,<span class="number">223492</span>,<span class="number">226835</span>,<span class="number">230209</span>,<span class="number">233577</span>,<span class="number">236900</span>,<span class="number">240230</span>,<span class="number">243539</span>,<span class="number">246909</span>,<span class="number">250150</span>,<span class="number">253412</span>,<span class="number">256726</span>,<span class="number">260064</span>,<span class="number">263397</span>,<span class="number">266717</span>,<span class="number">269987</span>,<span class="number">273322</span>,<span class="number">276611</span>,<span class="number">279921</span>,<span class="number">283146</span>,<span class="number">286490</span>,<span class="number">289774</span>,<span class="number">293010</span>,<span class="number">296314</span>,<span class="number">299583</span>,<span class="number">302824</span>,<span class="number">306084</span>,<span class="number">309335</span>,<span class="number">312666</span>,<span class="number">315948</span>,<span class="number">319164</span>,<span class="number">322441</span>,<span class="number">325706</span>,<span class="number">328964</span>,<span class="number">332219</span>,<span class="number">335439</span>,<span class="number">338694</span>,<span class="number">341992</span>,<span class="number">345235</span>,<span class="number">348513</span>,<span class="number">351715</span>,<span class="number">354971</span>,<span class="number">358198</span>,<span class="number">361407</span>,<span class="number">364685</span>,<span class="number">367900</span>,<span class="number">371131</span>,<span class="number">374362</span>,<span class="number">377574</span>,<span class="number">380800</span>,<span class="number">383979</span>,<span class="number">387202</span>,<span class="number">390378</span>,<span class="number">393606</span>,<span class="number">396826</span>,<span class="number">399993</span>,<span class="number">403204</span>,<span class="number">406429</span>,<span class="number">409672</span>,<span class="number">412849</span>,<span class="number">416040</span>,<span class="number">419246</span>,<span class="number">422449</span>,<span class="number">425648</span>,<span class="number">428816</span>,<span class="number">432073</span>,<span class="number">435265</span>,<span class="number">438410</span>,<span class="number">441562</span>,<span class="number">444757</span>,<span class="number">447955</span>,<span class="number">451159</span>,<span class="number">454337</span>,<span class="number">457497</span>,<span class="number">460707</span>,<span class="number">463872</span>,<span class="number">467055</span>,<span class="number">470283</span>,<span class="number">473470</span>,<span class="number">476648</span>,<span class="number">479864</span>,<span class="number">483015</span>,<span class="number">486167</span>,<span class="number">489319</span>,<span class="number">492494</span>,<span class="number">495666</span>,<span class="number">498797</span>,<span class="number">501962</span>,<span class="number">505147</span>,<span class="number">508261</span>,<span class="number">511417</span>,<span class="number">514565</span>,<span class="number">517740</span>,<span class="number">520910</span>,<span class="number">524026</span>,<span class="number">527154</span>,<span class="number">530334</span>,<span class="number">533506</span>,<span class="number">536652</span>,<span class="number">539777</span>,<span class="number">542898</span>,<span class="number">546024</span>,<span class="number">549150</span>,<span class="number">552319</span>,<span class="number">555479</span>,<span class="number">558597</span>,<span class="number">561766</span>,<span class="number">564877</span>,<span class="number">567967</span>,<span class="number">571119</span>,<span class="number">574274</span>,<span class="number">577439</span>,<span class="number">580566</span>,<span class="number">583714</span>,<span class="number">586850</span>,<span class="number">590006</span>,<span class="number">593112</span>,<span class="number">596222</span>,<span class="number">599355</span>,<span class="number">602489</span>,<span class="number">605556</span>,<span class="number">608672</span>,<span class="number">611788</span>,<span class="number">614917</span>,<span class="number">618057</span>,<span class="number">621177</span>,<span class="number">624298</span>,<span class="number">627400</span>,<span class="number">630495</span>,<span class="number">633578</span>,<span class="number">636697</span>,<span class="number">639851</span>,<span class="number">642962</span>,<span class="number">646054</span>,<span class="number">649175</span>,<span class="number">652265</span>,<span class="number">655355</span>,<span class="number">658445</span>,<span class="number">661520</span>,<span class="number">664579</span>,<span class="number">667709</span>,<span class="number">670820</span>,<span class="number">673927</span>,<span class="number">676970</span>,<span class="number">680063</span>,<span class="number">683178</span>,<span class="number">686262</span>,<span class="number">689382</span>,<span class="number">692486</span>,<span class="number">695609</span>,<span class="number">698703</span>,<span class="number">701795</span>,<span class="number">704895</span>,<span class="number">708007</span>,<span class="number">711108</span>,<span class="number">714154</span>,<span class="number">717257</span>,<span class="number">720341</span>,<span class="number">723457</span>,<span class="number">726517</span>,<span class="number">729577</span>,<span class="number">732707</span>,<span class="number">735767</span>,<span class="number">738873</span>,<span class="number">741941</span>,<span class="number">745001</span>,<span class="number">748066</span>,<span class="number">751131</span>,<span class="number">754189</span>,<span class="number">757288</span>,<span class="number">760391</span>,<span class="number">763455</span>,<span class="number">766554</span>,<span class="number">769639</span>,<span class="number">772706</span>,<span class="number">775773</span>,<span class="number">778818</span>,<span class="number">781906</span>,<span class="number">784991</span>,<span class="number">788060</span>,<span class="number">791111</span>,<span class="number">794149</span>,<span class="number">797261</span>,<span class="number">800285</span>,<span class="number">803358</span>,<span class="number">806435</span>,<span class="number">809487</span>,<span class="number">812601</span>,<span class="number">815674</span>,<span class="number">818703</span>,<span class="number">821750</span>,<span class="number">824801</span>,<span class="number">827884</span>,<span class="number">830940</span>,<span class="number">834026</span>,<span class="number">837099</span>,<span class="number">840169</span>,<span class="number">843192</span>,<span class="number">846205</span>,<span class="number">849252</span>,<span class="number">852291</span>,<span class="number">855281</span>,<span class="number">858338</span>,<span class="number">861401</span>,<span class="number">864446</span>,<span class="number">867482</span>,<span class="number">870532</span>,<span class="number">873606</span>,<span class="number">876616</span>,<span class="number">879640</span>,<span class="number">882652</span>,<span class="number">885698</span>,<span class="number">888762</span>,<span class="number">891833</span>,<span class="number">894877</span>,<span class="number">897938</span>,<span class="number">900996</span>,<span class="number">904057</span>,<span class="number">907101</span>,<span class="number">910077</span>,<span class="number">913098</span>,<span class="number">916147</span>,<span class="number">919203</span>,<span class="number">922193</span>,<span class="number">925237</span>,<span class="number">928293</span>,<span class="number">931330</span>,<span class="number">934441</span>,<span class="number">937446</span>,<span class="number">940455</span>,<span class="number">943484</span>,<span class="number">946551</span>,<span class="number">949506</span>,<span class="number">952566</span>,<span class="number">955599</span>,<span class="number">958651</span>,<span class="number">961694</span>,<span class="number">964695</span>,<span class="number">967720</span>,<span class="number">970704</span>,<span class="number">973739</span>,<span class="number">976761</span>,<span class="number">979764</span>,<span class="number">982776</span>,<span class="number">985807</span>,<span class="number">988851</span>,<span class="number">991880</span>,<span class="number">994839</span>,<span class="number">997817</span>,<span class="number">1000862</span>,<span class="number">1003926</span>,<span class="number">1006966</span>,<span class="number">1009985</span>,<span class="number">1013012</span>,<span class="number">1016026</span>,<span class="number">1019012</span>,<span class="number">1022057</span>,<span class="number">1025092</span>,<span class="number">1028089</span>,<span class="number">1031130</span>,<span class="number">1034115</span>,<span class="number">1037119</span>,<span class="number">1040144</span>,<span class="number">1043113</span>,<span class="number">1046152</span>,<span class="number">1049172</span>,<span class="number">1052140</span>,<span class="number">1055139</span>,<span class="number">1058173</span>,<span class="number">1061198</span>,<span class="number">1064162</span>,<span class="number">1067185</span>,<span class="number">1070198</span>,<span class="number">1073198</span>,<span class="number">1076221</span>,<span class="number">1079266</span>,<span class="number">1082255</span>,<span class="number">1085243</span>,<span class="number">1088266</span>,<span class="number">1091314</span>,<span class="number">1094330</span>,<span class="number">1097360</span>,<span class="number">1100328</span>,<span class="number">1103258</span>,<span class="number">1106267</span>,<span class="number">1109288</span>,<span class="number">1112328</span>,<span class="number">1115323</span>,<span class="number">1118354</span>,<span class="number">1121389</span>,<span class="number">1124405</span>,<span class="number">1127407</span>,<span class="number">1130388</span>,<span class="number">1133364</span>,<span class="number">1136320</span>,<span class="number">1139344</span>,<span class="number">1142298</span>,<span class="number">1145305</span>,<span class="number">1148316</span>,<span class="number">1151367</span>,<span class="number">1154307</span>,<span class="number">1157275</span>,<span class="number">1160273</span>,<span class="number">1163205</span>,<span class="number">1166251</span>,<span class="number">1169267</span>,<span class="number">1172264</span>,<span class="number">1175214</span>,<span class="number">1178218</span>,<span class="number">1181158</span>,<span class="number">1184128</span>,<span class="number">1187148</span>,<span class="number">1190171</span>,<span class="number">1193122</span>,<span class="number">1196133</span>,<span class="number">1199102</span>,<span class="number">1202080</span>,<span class="number">1205065</span>,<span class="number">1208078</span>,<span class="number">1211050</span>,<span class="number">1214027</span>,<span class="number">1216988</span>,<span class="number">1219966</span>,<span class="number">1222953</span>,<span class="number">1225900</span>,<span class="number">1228861</span>,<span class="number">1231859</span>,<span class="number">1234873</span>,<span class="number">1237894</span>,<span class="number">1240833</span>,<span class="number">1243787</span>,<span class="number">1246718</span>,<span class="number">1249710</span>,<span class="number">1252693</span>,<span class="number">1255682</span>,<span class="number">1258685</span>,<span class="number">1261660</span>,<span class="number">1264617</span>,<span class="number">1267631</span>,<span class="number">1270607</span>,<span class="number">1273599</span>,<span class="number">1276577</span>,<span class="number">1279531</span>,<span class="number">1282513</span>,<span class="number">1285456</span>,<span class="number">1288409</span>,<span class="number">1291373</span>,<span class="number">1294356</span>,<span class="number">1297270</span>,<span class="number">1300243</span>,<span class="number">1303229</span>,<span class="number">1306226</span>,<span class="number">1309152</span>,<span class="number">1312179</span>,<span class="number">1315161</span>,<span class="number">1318125</span>,<span class="number">1321065</span>,<span class="number">1324046</span>,<span class="number">1326975</span>,<span class="number">1329943</span>,<span class="number">1332935</span>,<span class="number">1335881</span>,<span class="number">1338865</span>,<span class="number">1341795</span>,<span class="number">1344716</span>,<span class="number">1347749</span>,<span class="number">1350691</span>,<span class="number">1353661</span>,<span class="number">1356600</span>,<span class="number">1359631</span>,<span class="number">1362538</span>,<span class="number">1365511</span>,<span class="number">1368447</span>,<span class="number">1371432</span>,<span class="number">1374421</span>,<span class="number">1377385</span>,<span class="number">1380343</span>,<span class="number">1383291</span>,<span class="number">1386325</span>,<span class="number">1389261</span>,<span class="number">1392272</span>,<span class="number">1395148</span>,<span class="number">1398094</span>,<span class="number">1401007</span>,<span class="number">1403922</span>,<span class="number">1406874</span>,<span class="number">1409821</span>,<span class="number">1412758</span>,<span class="number">1415679</span>,<span class="number">1418640</span>,<span class="number">1421620</span>,<span class="number">1424606</span>,<span class="number">1427535</span>,<span class="number">1430531</span>,<span class="number">1433481</span>,<span class="number">1436398</span>,<span class="number">1439367</span>,<span class="number">1442335</span>,<span class="number">1445279</span>,<span class="number">1448221</span>,<span class="number">1451219</span>,<span class="number">1454144</span>,<span class="number">1457067</span>,<span class="number">1460019</span>,<span class="number">1462950</span>,<span class="number">1465935</span>,<span class="number">1468883</span>,<span class="number">1471822</span>,<span class="number">1474757</span>,<span class="number">1477731</span>,<span class="number">1480683</span>,<span class="number">1483609</span>,<span class="number">1486531</span>,<span class="number">1489509</span>,<span class="number">1492408</span>,<span class="number">1495350</span>,<span class="number">1498253</span>,<span class="number">1501220</span>,<span class="number">1504189</span>,<span class="number">1507122</span>,<span class="number">1510064</span>,<span class="number">1512992</span>,<span class="number">1515935</span>,<span class="number">1518898</span>,<span class="number">1521859</span>,<span class="number">1524831</span>,<span class="number">1527768</span>,<span class="number">1530729</span>,<span class="number">1533657</span>,<span class="number">1536569</span>,<span class="number">1539541</span>,<span class="number">1542459</span>,<span class="number">1545372</span>,<span class="number">1548366</span>,<span class="number">1551302</span>,<span class="number">1554245</span>,<span class="number">1557132</span>,<span class="number">1560093</span>,<span class="number">1562976</span>,<span class="number">1565927</span>,<span class="number">1568845</span>,<span class="number">1571812</span>,<span class="number">1574749</span>,<span class="number">1577649</span>,<span class="number">1580509</span>,<span class="number">1583439</span>,<span class="number">1586387</span>,<span class="number">1589324</span>,<span class="number">1592219</span>,<span class="number">1595177</span>,<span class="number">1598118</span>,<span class="number">1601049</span>,<span class="number">1603985</span>,<span class="number">1606876</span>,<span class="number">1609825</span>,<span class="number">1612775</span>,<span class="number">1615749</span>,<span class="number">1618668</span>,<span class="number">1621590</span>,<span class="number">1624527</span>,<span class="number">1627444</span>,<span class="number">1630379</span>,<span class="number">1633312</span>,<span class="number">1636202</span>,<span class="number">1639094</span>,<span class="number">1642052</span>,<span class="number">1644964</span>,<span class="number">1647911</span>,<span class="number">1650840</span>,<span class="number">1653807</span>,<span class="number">1656761</span>,<span class="number">1659690</span>,<span class="number">1662600</span>,<span class="number">1665517</span>,<span class="number">1668413</span>,<span class="number">1671330</span>,<span class="number">1674240</span>,<span class="number">1677200</span>,<span class="number">1680120</span>,<span class="number">1683065</span>,<span class="number">1685964</span>,<span class="number">1688960</span>,<span class="number">1691876</span>,<span class="number">1694762</span>,<span class="number">1697663</span>,<span class="number">1700558</span>,<span class="number">1703469</span>,<span class="number">1706405</span>,<span class="number">1709342</span>,<span class="number">1712204</span>,<span class="number">1715158</span>,<span class="number">1718134</span>,<span class="number">1721034</span>,<span class="number">1723913</span>,<span class="number">1726899</span>,<span class="number">1729764</span>,<span class="number">1732641</span>,<span class="number">1735590</span>,<span class="number">1738531</span>,<span class="number">1741430</span>,<span class="number">1744400</span>,<span class="number">1747297</span>,<span class="number">1750204</span>,<span class="number">1753058</span>,<span class="number">1756025</span>,<span class="number">1758964</span>,<span class="number">1761886</span>,<span class="number">1764767</span>,<span class="number">1767691</span>,<span class="number">1770613</span>,<span class="number">1773526</span>,<span class="number">1776430</span>,<span class="number">1779363</span>,<span class="number">1782260</span>,<span class="number">1785173</span>,<span class="number">1788065</span>,<span class="number">1790930</span>,<span class="number">1793863</span>,<span class="number">1796762</span>,<span class="number">1799676</span>,<span class="number">1802593</span>,<span class="number">1805472</span>,<span class="number">1808374</span>,<span class="number">1811272</span>,<span class="number">1814112</span>,<span class="number">1817102</span>,<span class="number">1820026</span>,<span class="number">1822944</span>,<span class="number">1825792</span>,<span class="number">1828703</span>,<span class="number">1831616</span>,<span class="number">1834530</span>,<span class="number">1837416</span>,<span class="number">1840359</span>,<span class="number">1843275</span>,<span class="number">1846115</span>,<span class="number">1849029</span>,<span class="number">1852006</span>,<span class="number">1854941</span>,<span class="number">1857859</span>,<span class="number">1860788</span>,<span class="number">1863719</span>,<span class="number">1866645</span>,<span class="number">1869536</span>,<span class="number">1872441</span>,<span class="number">1875367</span>,<span class="number">1878295</span>,<span class="number">1881199</span>,<span class="number">1884021</span>,<span class="number">1886923</span>,<span class="number">1889855</span>,<span class="number">1892785</span>,<span class="number">1895702</span>,<span class="number">1898632</span>,<span class="number">1901520</span>,<span class="number">1904396</span>,<span class="number">1907306</span>,<span class="number">1910248</span>,<span class="number">1913136</span>,<span class="number">1915979</span>,<span class="number">1918857</span>,<span class="number">1921714</span>,<span class="number">1924643</span>,<span class="number">1927488</span>,<span class="number">1930397</span>,<span class="number">1933290</span>,<span class="number">1936209</span>,<span class="number">1939089</span>,<span class="number">1941982</span>,<span class="number">1944833</span>,<span class="number">1947684</span>,<span class="number">1950638</span>,<span class="number">1953525</span>,<span class="number">1956440</span>,<span class="number">1959308</span>,<span class="number">1962184</span>,<span class="number">1965111</span>,<span class="number">1968015</span>,<span class="number">1970912</span>,<span class="number">1973815</span>,<span class="number">1976668</span>,<span class="number">1979564</span>,<span class="number">1982509</span>,<span class="number">1985372</span>,<span class="number">1988254</span>,<span class="number">1991162</span>,<span class="number">1994051</span>,<span class="number">1996958</span>,<span class="number">1999823</span>,<span class="number">2002749</span>,<span class="number">2005638</span>,<span class="number">2008561</span>,<span class="number">2011422</span>,<span class="number">2014337</span>,<span class="number">2017231</span>,<span class="number">2020103</span>,<span class="number">2022944</span>,<span class="number">2025864</span>,<span class="number">2028764</span>,<span class="number">2031667</span>,<span class="number">2034522</span>,<span class="number">2037385</span>,<span class="number">2040293</span>,<span class="number">2043192</span>,<span class="number">2046087</span>,<span class="number">2048989</span>,<span class="number">2051891</span>,<span class="number">2054802</span>,<span class="number">2057701</span>,<span class="number">2060577</span>,<span class="number">2063430</span>,<span class="number">2066324</span>,<span class="number">2069193</span>,<span class="number">2072084</span>,<span class="number">2074966</span>,<span class="number">2077862</span>,<span class="number">2080771</span>,<span class="number">2083678</span>,<span class="number">2086529</span>,<span class="number">2089379</span>,<span class="number">2092244</span>,<span class="number">2095092</span>,<span class="number">2097961</span>,<span class="number">2100791</span>,<span class="number">2103648</span>,<span class="number">2106544</span>,<span class="number">2109362</span>,<span class="number">2112215</span>,<span class="number">2115089</span>,<span class="number">2118001</span>,<span class="number">2120897</span>,<span class="number">2123788</span>,<span class="number">2126637</span>,<span class="number">2129473</span>,<span class="number">2132329</span>,<span class="number">2135232</span>,<span class="number">2138061</span>,<span class="number">2141013</span>,<span class="number">2143883</span>,<span class="number">2146775</span>,<span class="number">2149635</span>,<span class="number">2152470</span>,<span class="number">2155359</span>,<span class="number">2158233</span>,<span class="number">2161146</span>,<span class="number">2163998</span>,<span class="number">2166906</span>,<span class="number">2169775</span>,<span class="number">2172667</span>,<span class="number">2175518</span>,<span class="number">2178423</span>,<span class="number">2181266</span>,<span class="number">2184161</span>,<span class="number">2187043</span>,<span class="number">2189920</span>,<span class="number">2192806</span>,<span class="number">2195671</span>,<span class="number">2198505</span>,<span class="number">2201356</span>,<span class="number">2204262</span>,<span class="number">2207150</span>,<span class="number">2210026</span>,<span class="number">2212915</span>,<span class="number">2215731</span>,<span class="number">2218609</span>,<span class="number">2221543</span>,<span class="number">2224435</span>,<span class="number">2227279</span>,<span class="number">2230137</span>,<span class="number">2233036</span>,<span class="number">2235899</span>,<span class="number">2238778</span>,<span class="number">2241626</span>,<span class="number">2244473</span>,<span class="number">2247300</span>,<span class="number">2250226</span>,<span class="number">2253061</span>,<span class="number">2255897</span>,<span class="number">2258731</span>,<span class="number">2261623</span>,<span class="number">2264514</span>,<span class="number">2267395</span>,<span class="number">2270349</span>,<span class="number">2273189</span>,<span class="number">2276042</span>,<span class="number">2278857</span>,<span class="number">2281732</span>,<span class="number">2284633</span>,<span class="number">2287447</span>,<span class="number">2290350</span>,<span class="number">2293262</span>,<span class="number">2296101</span>,<span class="number">2298985</span>,<span class="number">2301840</span>,<span class="number">2304721</span>,<span class="number">2307562</span>,<span class="number">2310419</span>,<span class="number">2313254</span>,<span class="number">2316107</span>,<span class="number">2318966</span>,<span class="number">2321832</span>,<span class="number">2324728</span>,<span class="number">2327619</span>,<span class="number">2330509</span>,<span class="number">2333367</span>,<span class="number">2336299</span>,<span class="number">2339147</span>,<span class="number">2342005</span>,<span class="number">2344890</span>,<span class="number">2347727</span>,<span class="number">2350582</span>,<span class="number">2353448</span>,<span class="number">2356279</span>,<span class="number">2359142</span>,<span class="number">2362051</span>,<span class="number">2364953</span>,<span class="number">2367814</span>,<span class="number">2370696</span>,<span class="number">2373590</span>,<span class="number">2376402</span>,<span class="number">2379261</span>,<span class="number">2382120</span>,<span class="number">2384990</span>,<span class="number">2387828</span>,<span class="number">2390737</span>,<span class="number">2393630</span>,<span class="number">2396534</span>,<span class="number">2399359</span>,<span class="number">2402242</span>,<span class="number">2405101</span>,<span class="number">2407984</span>,<span class="number">2410827</span>,<span class="number">2413749</span>,<span class="number">2416624</span>,<span class="number">2419434</span>,<span class="number">2422305</span>,<span class="number">2425151</span>,<span class="number">2427981</span>,<span class="number">2430806</span>,<span class="number">2433654</span>,<span class="number">2436487</span>,<span class="number">2439371</span>,<span class="number">2442235</span>,<span class="number">2445078</span>,<span class="number">2447902</span>,<span class="number">2450819</span>,<span class="number">2453695</span>,<span class="number">2456577</span>,<span class="number">2459382</span>,<span class="number">2462273</span>,<span class="number">2465109</span>,<span class="number">2467902</span>,<span class="number">2470746</span>,<span class="number">2473603</span>,<span class="number">2476509</span>,<span class="number">2479409</span>,<span class="number">2482267</span>,<span class="number">2485075</span>,<span class="number">2487886</span>,<span class="number">2490756</span>,<span class="number">2493597</span>,<span class="number">2496476</span>,<span class="number">2499337</span>,<span class="number">2502205</span>,<span class="number">2505030</span>,<span class="number">2507850</span>,<span class="number">2510721</span>,<span class="number">2513534</span>,<span class="number">2516394</span>,<span class="number">2519246</span>,<span class="number">2522092</span>,<span class="number">2524898</span>,<span class="number">2527696</span>,<span class="number">2530575</span>,<span class="number">2533422</span>,<span class="number">2536286</span>,<span class="number">2539186</span>,<span class="number">2542018</span>,<span class="number">2544808</span>,<span class="number">2547620</span>,<span class="number">2550462</span>,<span class="number">2553305</span>,<span class="number">2556175</span>,<span class="number">2559020</span>,<span class="number">2561921</span>,<span class="number">2564807</span>,<span class="number">2567637</span>,<span class="number">2570490</span>,<span class="number">2573319</span>,<span class="number">2576200</span>,<span class="number">2579019</span>,<span class="number">2581841</span>,<span class="number">2584684</span>,<span class="number">2587550</span>,<span class="number">2590386</span>,<span class="number">2593245</span>,<span class="number">2596089</span>,<span class="number">2598870</span>,<span class="number">2601721</span>,<span class="number">2604535</span>,<span class="number">2607331</span>,<span class="number">2610226</span>,<span class="number">2613067</span>,<span class="number">2615907</span>,<span class="number">2618758</span>,<span class="number">2621566</span>,<span class="number">2624440</span>,<span class="number">2627281</span>,<span class="number">2630152</span>,<span class="number">2632997</span>,<span class="number">2635866</span>,<span class="number">2638710</span>,<span class="number">2641508</span>,<span class="number">2644301</span>,<span class="number">2647127</span>,<span class="number">2649982</span>,<span class="number">2652825</span>,<span class="number">2655643</span>,<span class="number">2658487</span>,<span class="number">2661384</span>,<span class="number">2664228</span>,<span class="number">2667036</span>,<span class="number">2669841</span>,<span class="number">2672702</span>,<span class="number">2675523</span>,<span class="number">2678429</span>,<span class="number">2681216</span>,<span class="number">2684053</span>,<span class="number">2686906</span>,<span class="number">2689717</span>,<span class="number">2692570</span>,<span class="number">2695450</span>,<span class="number">2698298</span>,<span class="number">2701159</span>,<span class="number">2703995</span>,<span class="number">2706858</span>,<span class="number">2709644</span>,<span class="number">2712494</span>,<span class="number">2715332</span>,<span class="number">2718160</span>,<span class="number">2721011</span>,<span class="number">2723886</span>,<span class="number">2726718</span>,<span class="number">2729508</span>,<span class="number">2732389</span>,<span class="number">2735255</span>,<span class="number">2738140</span>,<span class="number">2740985</span>,<span class="number">2743838</span>,<span class="number">2746679</span>,<span class="number">2749526</span>,<span class="number">2752380</span>,<span class="number">2755215</span>,<span class="number">2758056</span>,<span class="number">2760896</span>,<span class="number">2763691</span>,<span class="number">2766522</span>,<span class="number">2769407</span>,<span class="number">2772249</span>,<span class="number">2775053</span>,<span class="number">2777902</span>,<span class="number">2780731</span>,<span class="number">2783526</span>,<span class="number">2786355</span>,<span class="number">2789189</span>,<span class="number">2791974</span>,<span class="number">2794837</span>,<span class="number">2797652</span>,<span class="number">2800483</span>,<span class="number">2803324</span>,<span class="number">2806163</span>,<span class="number">2808976</span>,<span class="number">2811853</span>,<span class="number">2814698</span>,<span class="number">2817518</span>,<span class="number">2820355</span>,<span class="number">2823178</span>,<span class="number">2826040</span>,<span class="number">2828852</span>,<span class="number">2831693</span>,<span class="number">2834491</span>,<span class="number">2837271</span>,<span class="number">2840147</span>,<span class="number">2842995</span>,<span class="number">2845792</span>,<span class="number">2848642</span>,<span class="number">2851461</span>,<span class="number">2854302</span>,<span class="number">2857087</span>,<span class="number">2859963</span>,<span class="number">2862777</span>,<span class="number">2865596</span>,<span class="number">2868399</span>,<span class="number">2871207</span>,<span class="number">2874012</span>,<span class="number">2876824</span>,<span class="number">2879677</span>,<span class="number">2882545</span>,<span class="number">2885338</span>,<span class="number">2888144</span>,<span class="number">2890939</span>,<span class="number">2893763</span>,<span class="number">2896598</span>,<span class="number">2899408</span>,<span class="number">2902191</span>,<span class="number">2905025</span>,<span class="number">2907902</span>,<span class="number">2910714</span>,<span class="number">2913488</span>,<span class="number">2916338</span>,<span class="number">2919190</span>,<span class="number">2921977</span>,<span class="number">2924773</span>,<span class="number">2927626</span>,<span class="number">2930404</span>,<span class="number">2933208</span>,<span class="number">2936067</span>,<span class="number">2938896</span>,<span class="number">2941732</span>,<span class="number">2944531</span>,<span class="number">2947349</span>,<span class="number">2950188</span>,<span class="number">2952990</span>,<span class="number">2955834</span>,<span class="number">2958685</span>,<span class="number">2961491</span>,<span class="number">2964316</span>,<span class="number">2967186</span>,<span class="number">2970001</span>,<span class="number">2972862</span>,<span class="number">2975681</span>,<span class="number">2978556</span>,<span class="number">2981364</span>,<span class="number">2984185</span>,<span class="number">2987006</span>,<span class="number">2989825</span>,<span class="number">2992648</span>,<span class="number">2995509</span>,<span class="number">2998299</span>&#125;;</span><br><span class="line"><span class="keyword">bool</span> prime[<span class="number">60000</span>],seive[<span class="number">60000</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">seg_seive</span><span class="params">(<span class="keyword">int</span> L,<span class="keyword">int</span> R)</span>   <span class="comment">//区间筛法</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len=R-L+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; i++) prime[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="number">1</span>-L&gt;=<span class="number">0</span>) prime[<span class="number">1</span>-L]=<span class="number">0</span>;   <span class="comment">//易错因为1不是素数也不是合数，这也是区间筛的一个易错bug</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i*i&lt;=R ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(seive[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=max(<span class="number">2</span>,(L<span class="number">-1</span>+i)/i)*i; j&lt;=R; j+=i) <span class="comment">//第二个易错点，j必须从大于1，因为L可能小于i，但是seive[i]是素数。</span></span><br><span class="line">                prime[j-L]=<span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;<span class="number">50001</span>; i++) seive[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i*i&lt;<span class="number">50001</span>; i++) <span class="comment">//预处理</span></span><br><span class="line">        <span class="keyword">if</span>(seive[i])</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>*i; j&lt;<span class="number">50001</span>; j+=i)</span><br><span class="line">                seive[j]=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">int</span> n,rl=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">int</span> l=<span class="number">0</span>,r=<span class="number">1000</span>;</span><br><span class="line">        <span class="keyword">while</span>(l+<span class="number">1</span>&lt;r)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(pos[mid]&lt;n)</span><br><span class="line">                l=mid;</span><br><span class="line">            <span class="keyword">else</span> r=mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> left=l*<span class="number">50000</span>,right=r*<span class="number">50000</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> x=n-pos[l];</span><br><span class="line">        seg_seive(left,right);</span><br><span class="line">        <span class="comment">//printf("%d %d %d\n",left,right,x);</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=left; i&lt;=right; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(prime[i-left]==<span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                x--;</span><br><span class="line">                <span class="keyword">if</span>(x==<span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">"Case %d: %d\n"</span>,rl++,i);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.png" alt="Albert_s WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.jpg" alt="Albert_s Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Albert_s
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://alberts97.github.io/find-prime/" title="【知识点】 ---寻找第n个素数">https://alberts97.github.io/find-prime/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/知识点/" rel="tag"># 知识点</a>
+          
+            <a href="/tags/素数/" rel="tag"># 素数</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/51nod-1130/" rel="next" title="51Nod 1130 N的阶乘的长度 V2(斯特林近似) 【数学】【斯特林公式】">
+                <i class="fa fa-chevron-left"></i> 51Nod 1130 N的阶乘的长度 V2(斯特林近似) 【数学】【斯特林公式】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/sdnu-1147/" rel="prev" title="SDNU 1147 Pythagoras's Revenge 【技巧暴力】">
+                SDNU 1147 Pythagoras's Revenge 【技巧暴力】 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+
+    </footer>
+  </div>
+
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+
+
+      
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTA2Ni8xNzU5MQ=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/Photo.jpg" alt="Albert_s">
+          <p class="site-author-name" itemprop="name">Albert_s</p>
+           
+              <p class="site-description motion-element" itemprop="description">孤勇之后 世界尽在眼前</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Alberts97" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=294668255&site=qq&menu=yes" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                    
+                      QQ
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:294668255@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/young-1-17-84" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      Zhihu
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-link"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.rainng.com/" title="Azure99" target="_blank">Azure99</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://crazyforsaken.com/" title="Forsaken" target="_blank">Forsaken</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.skji.net/" title="E6ther" target="_blank">E6ther</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Albert_s</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+  
+</body>
+</html>
