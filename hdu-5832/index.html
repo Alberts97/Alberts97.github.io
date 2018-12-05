@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：告诉你个长度为$10000000$的数字，问这个数字是否既是73的倍数又是137的倍数。 解题思路：大数取模。c++的大数取模是根据秦九韶公式来的， 举个例子来说$123 = ((1 \times 10 + 2) \times 10) + 3$， 而$(a \times b) \% M = a \% M \times b \% M$， 然后我们就能得到$123 \% M = ((1 \%">
 <meta name="keywords" content="HDU,大数,CCPC">
 <meta property="og:type" content="article">
@@ -598,7 +610,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -609,7 +621,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

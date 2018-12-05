@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：给出n个教室的坐标(三维)以及求任意两点间距离的方式，q次询问，对每次询问输出距离小于R的坐标对数。 解题思路： 一、【真丶暴力】先离线存取每个点坐标，然后两层循环求出所有可能组合的情况，将结果存在答案数组里，因为数组里存的是距离等于R的组合种类数，而题目要求的是距离大于等于R的组合种类数，所以需要从前往后更新一下答案数组。最后对于每次询问，直接输出结果即可。 注：因为两坐标间距离最大为">
 <meta name="keywords" content="玲珑学院,计算几何,暴力">
 <meta property="og:type" content="article">
@@ -594,7 +606,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -605,7 +617,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：现在有n把主武器和m把副武器，每个武器除了有1个固定属性外，还有k个能互相影响的属性，具体体现在当你选择两把武器时，固定属性带给你的加成是两者的固定属性值之和，而这k个属性带给你的加成是两武器的对应各属性差的绝对值之和。 现在要你选择一把主武器和一把副武器，使得两武器配合带来的加成最大。 解题思路：考虑到n和m的范围最大值都是100000，所以直接看搭配方案是不可行的，而属性k最大只有5">
 <meta name="keywords" content="HDU,思维,多校联合,二进制">
 <meta property="og:type" content="article">
@@ -599,7 +611,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -610,7 +622,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

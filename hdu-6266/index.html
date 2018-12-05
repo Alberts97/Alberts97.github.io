@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：H和N玩取石子游戏，给出n堆石子，每堆$a_i$个，H每回合取两次，N每回合取一次，每次都只能从某一堆石子中取出至少一个石子，取走最后一个(堆)石子的获得胜利。 规定先后手，两者都采取最佳策略，问最后H能否获胜。 解题思路：H先手时，经过手算(?)我们发现当n % 3 == 0 &amp;amp;&amp;amp; n个石子全为1的时候先手必输。所以当H后手的时候，只要先手通过一步操作使当前局面变成上述">
 <meta name="keywords" content="HDU,CCPC,规律">
 <meta property="og:type" content="article">
@@ -598,7 +610,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -609,7 +621,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

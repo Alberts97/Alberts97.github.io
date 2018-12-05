@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：现在有一个长度为n的序列，给出m个操作，每次操作都是将第p个位置处的数值替换为q，问每次操作后以第一个元素为起点的LIS的长度是多少。 解题思路：利用线段树维护区间最大值 &amp;amp;&amp;amp; 以区间左端点为起点的LIS的长度，这样答案就是以1为起点的LIS长度。对于每次查询只要替换对应位置上的值和更新树就好了，查询完后记得改回来。 有几点比较巧妙的地方稍微写一下：  区间的LIS长度">
 <meta name="keywords" content="线段树,HDU,思维,多校联合">
 <meta property="og:type" content="article">
@@ -603,7 +615,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -614,7 +626,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

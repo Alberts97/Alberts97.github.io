@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：找出n个数，满足给出的m个区间内的数都不相同。问满足条件的字典序最小的序列是多少。 解题思路：字典序最小，说明肯定要越小的越往前填，如果没有限制区间的话答案就是$n$个$1$啦，加上后最先出现的区间要最先考虑，即$l_1$ ~ $r_1$内的数为$1$ ~ $r_1 - l_1$，后面的根据出现的顺序(指填到x时最先覆盖x的区间)依次从小往大填就好了。题目的难点就是填数时保证不重复。为了">
 <meta name="keywords" content="模拟,贪心,HDU,多校联合">
 <meta property="og:type" content="article">
@@ -597,7 +609,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -608,7 +620,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

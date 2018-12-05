@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：给出一颗根结点为1的树，每个结点最多有两个叶子结点，每个结点的值非0即1。现在给出部分结点的值(0或1)，剩余结点告诉你它们值和子结点值的关系(AND、OR、XOR、NOT)。现在要你求的内容是按照输入顺序依次改变初始时给出的结点的值(0变为1，1变为0)，问每次改变后的根结点的值是多少。 解题思路：首先根据给出的关系我们可以求出每个结点初始状态的值，后面怎么做呢？我们可以挨个枚举每个点">
 <meta name="keywords" content="CodeForces,模拟,DFS">
 <meta property="og:type" content="article">
@@ -595,7 +607,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -606,7 +618,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

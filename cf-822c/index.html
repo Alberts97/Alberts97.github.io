@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：给出n个区间，每个区间有个值$c_i​$。现要你从中选出两个区间，使得它们不相交 &amp;amp;&amp;amp; 区间长度之和恰好为 x。无解时输出-1， 存在多个可行解时输出$c_i + c_j​$ 最小的和。 解题思路：第一感觉是排序后选定一个区间，然后二分找到满足值为$x - c_i$的那个区间，然后写炸了。后来补题时发现可以用个vector将区间的左端点和值存下来，下标就是区间长度，这样查">
 <meta name="keywords" content="CodeForces,模拟,贪心">
 <meta property="og:type" content="article">
@@ -595,7 +607,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -606,7 +618,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

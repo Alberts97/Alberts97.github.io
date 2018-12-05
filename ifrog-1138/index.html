@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：一开始编号1-n中的所有数字都为0，告诉你m个数字，将所有标号为这m个数字的倍数的值都^1，问最后有多少个数字值为1。 解题思路：考虑到n的范围很大，而m最多只有15个值，我们用容斥来做。 因为每次都是编号满足条件的值与1异或，所以值一直在1、0之间变动，因此不能像之前的找倍数那样直接加减。 (比如n=10，m=2，k1 k2分别为2 3时，编号6的值最终结果为0) 换个思路想就是这个格">
 <meta name="keywords" content="思维,玲珑学院,容斥">
 <meta property="og:type" content="article">
@@ -598,7 +610,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -609,7 +621,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

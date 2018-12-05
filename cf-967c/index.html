@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：在一个n层高的楼层里，有m块呈直线连在一起的区域，有cl个楼梯和ce个电梯分别在 $a_1$ ~ $a_{cl}$ 和 $b_1$ ~ $b_{ce}$的位置上，从这个位置可以上到上一层楼或者下一层楼。楼梯1s可以上|下一层楼，电梯1s可以上|下$\leq$ v个楼层，从一块到相邻的一块也需要1s的时间。有q个询问，问最少经过多少时间可以从$x1, y1$到达$x2, y2$。 解题思路">
 <meta name="keywords" content="CodeForces,二分">
 <meta property="og:type" content="article">
@@ -594,7 +606,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -605,7 +617,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

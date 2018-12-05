@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：现在有一个聊天界面(可以想象为一个队列)，请你模拟以下操作：   Add u： 在队列中加入一个优先级为u的窗口。如果已经存在同优先级的窗口，输出”same priority.”，否则输出 “success.”。 Close u：将队列中优先级为u的窗口关闭。如果不存在优先级为u的窗口，输出”invalid priority.” 否则输出”close u with c.”，其中c是和优先">
 <meta name="keywords" content="模拟,HDU,vector,ICPC">
 <meta property="og:type" content="article">
@@ -612,7 +624,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -623,7 +635,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

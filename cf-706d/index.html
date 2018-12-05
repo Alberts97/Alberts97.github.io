@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：现在要对一个multiset执行q次指令，请你根据指令作出相应操作。共有3种指令类型，分别为”+ x”，”- x”和”? x”，他们的要求依次为：向集合中添加一个元素x、删除集合中的一个元素x和查询集合中现已存在的数与x的异或结果最大值。注意：multiset是一个允许相同元素存在于集合中的一个容器。初始时集合中有且仅有0这个元素。 解题思路：全题中最重要的指令就是”? x”这个指令了。">
 <meta name="keywords" content="CodeForces,Trie">
 <meta property="og:type" content="article">
@@ -593,7 +605,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -604,7 +616,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

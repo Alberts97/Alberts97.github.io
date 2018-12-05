@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：给定一个序列 a[1..n]，对于每个长度为 m 的连续子区间，求出区间 a 的最大值以及从左往右扫描该区间时 a 的最大值的变化次数。$1 ≤ m ≤ n ≤ 10^7$。 解题思路：求区间最大值，我首先想到的是很经典的滑动窗口求区间最大值问题。对于这个问题，因为还要求最大值的变化次数，所以直接利用滑窗的话变化次数不好求。于是就有题解上说的考虑按照 r 从 n 到 m 的顺序倒着求出每">
 <meta name="keywords" content="HDU,多校联合,queue">
 <meta property="og:type" content="article">
@@ -596,7 +608,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -607,7 +619,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

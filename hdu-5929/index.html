@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：  现有一个栈，请你对它做出如下操作：   PUSH x：将元素x入栈。 POP：将栈顶元素出栈。 REVERSE：将栈内元素翻转。 QUERY：查询从栈顶元素开始到栈底元素的NAND和。    其中NAND的定义为：  0 nand 0 = 1  0 nand 1 = 1  1 nand 0 = 1  1 nand 1 = 0        解题思路：对于操作1和操作2直接模拟就好了，">
 <meta name="keywords" content="模拟,HDU,CCPC,deque">
 <meta property="og:type" content="article">
@@ -617,7 +629,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -628,7 +640,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

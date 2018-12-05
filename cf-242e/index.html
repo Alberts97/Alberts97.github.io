@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：给出一个包含n个数的数组，先要对数组中的数进行m次操作，当输入的指令为1时，输出区间l~r的数的和；当输入的指令为2时，将区间l~r的数全部^x。 解题思路：区间更新，区间求和，线段树的典型应用。求和好解决，但是更新呢？如果单点更新肯定超时不用想。考虑异或的性质，是否可以将存的数分解为二进制的形式进行存储呢，答案是可以的。因为$a_i$最大不超过$ 2^{20} $，所以将sum改为大小">
 <meta name="keywords" content="CodeForces,线段树,异或">
 <meta property="og:type" content="article">
@@ -595,7 +607,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -606,7 +618,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="UVa 210 Concurrency Simulator 【Deque】题目大意：本题需要你模拟一些简单程序，每一个程序有以下5种指令：  var = val，给变量赋值，简单起见保证变量名为一个字母，变量为所有进程共用，并且初始为0，保证val是不大于100的正整数； print var,输出变量var； lock对所有变量申请独占访问(不影响赋值和打印) unlock解除独占访问 end结束">
 <meta name="keywords" content="DFS,并查集,queue,UVa,解题报告,算法竞赛入门经典,数据结构,stack,BFS,list,二叉树,拓扑排序,欧拉回路">
 <meta property="og:type" content="article">
@@ -715,7 +727,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -726,7 +738,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

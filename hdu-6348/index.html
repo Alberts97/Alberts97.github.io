@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：现在有n个城市，你依次经过城市$1$ ~ $n$。每个城市都有一个共同的物品，但它们的价格可能会不一样。你经过一个城市时可以选择将这个物品以 $a_i$ 的价格买下来，或者是以 $a_i$的价格卖出去(卖出去的前提是你已经有至少一个此物品)，每个城市最多进行一次买/卖操作。初始时你又无限多的钱，问在走完这n个城市后你的钱最多能变成多少，并输出此时交易的次数。当能通过多种买/卖的方法达到最">
 <meta name="keywords" content="贪心,HDU,思维,CCPC">
 <meta property="og:type" content="article">
@@ -597,7 +609,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -608,7 +620,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

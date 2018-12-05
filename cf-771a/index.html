@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：给出n个点，m条边构成的一个无向图。问是否图中所有的边都满足：当a和b相连、b和c相连时，a和c也相连。 解题思路：当满足上述条件时就说明这k个点构成了一个无向完全图，这种图的充要条件是：边数 = 点数 * (点数 - 1) / 2。根据这个突破点用DFS搜或者并查集判都可以了。 Mycode(并查集):123456789101112131415161718192021222324252">
 <meta name="keywords" content="CodeForces,DFS,并查集">
 <meta property="og:type" content="article">
@@ -596,7 +608,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -607,7 +619,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

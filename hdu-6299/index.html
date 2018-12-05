@@ -94,6 +94,18 @@
 
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
 <meta name="description" content="题目大意：现有n个字符串，每个串均有若干个()左右括号构成，请你选择一个连接顺序将这些串连在一起，使得匹配的括号对数最多。括号匹配的定义为左括号在右括号左边，每个括号均有一次参与匹配的机会。 解题思路：  首先在输入时对串进行处理，将已经匹配的记录下来，这样剩下的串只有4种情况：1.空串 2.只有左括号 3.只有右括号 4.右括号和左括号的混合 &amp;amp;&amp;amp; 右括号一定在左括号前边。  首">
 <meta name="keywords" content="贪心,HDU,多校联合">
 <meta property="og:type" content="article">
@@ -596,7 +608,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">53</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -607,7 +619,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
