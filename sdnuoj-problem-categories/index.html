@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="SDNU,Memory,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                window.location.href = "https://alberts97.github.io/";
+            }
+        }
+    })();
+</script>
+
+
+<meta name="description" content="时间并不会因为你的迷茫和迟疑而停留，就在你看这篇文章的同时，不知道有多少人在冥思苦想，在为算法废寝忘食，不知道有多少人在狂热地拍着代码，不知道又有多少提交一遍又一遍地刷新着OJ的status页面…… 没有谁生来就是神牛，而千里之行，始于足下！">
+<meta name="keywords" content="SDNU,Memory">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SDNUOJ题目分类【Overview】">
+<meta property="og:url" content="https://alberts97.github.io/sdnuoj-problem-categories/index.html">
+<meta property="og:site_name" content="咸鱼の小窝">
+<meta property="og:description" content="时间并不会因为你的迷茫和迟疑而停留，就在你看这篇文章的同时，不知道有多少人在冥思苦想，在为算法废寝忘食，不知道有多少人在狂热地拍着代码，不知道又有多少提交一遍又一遍地刷新着OJ的status页面…… 没有谁生来就是神牛，而千里之行，始于足下！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://alberts97.github.io/sdnuoj-problem-categories/自拍.png">
+<meta property="og:updated_time" content="2019-01-10T12:58:08.805Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SDNUOJ题目分类【Overview】">
+<meta name="twitter:description" content="时间并不会因为你的迷茫和迟疑而停留，就在你看这篇文章的同时，不知道有多少人在冥思苦想，在为算法废寝忘食，不知道有多少人在狂热地拍着代码，不知道又有多少提交一遍又一遍地刷新着OJ的status页面…… 没有谁生来就是神牛，而千里之行，始于足下！">
+<meta name="twitter:image" content="https://alberts97.github.io/sdnuoj-problem-categories/自拍.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://alberts97.github.io/sdnuoj-problem-categories/">
+
+
+
+
+
+  <title>SDNUOJ题目分类【Overview】 | 咸鱼の小窝</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">咸鱼の小窝</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">快乐咸鱼每一天，咸鱼咸鱼咸~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://alberts97.github.io/sdnuoj-problem-categories/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Albert_s">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/Photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼の小窝">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SDNUOJ题目分类【Overview】</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-09T22:36:31+08:00">
+                2019-01-09
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-10T20:58:08+08:00">
+                2019-01-10
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  时间并不会因为你的迷茫和迟疑而停留，就在你看这篇文章的同时，不知道有多少人在冥思苦想，在为算法废寝忘食，不知道有多少人在狂热地拍着代码，不知道又有多少提交一遍又一遍地刷新着OJ的status页面…… 没有谁生来就是神牛，而千里之行，始于足下！
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+        <div id="aplayer-iJlRxkWv" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+            <pre class="aplayer-lrc-content"></pre>
+        </div>
+        <script>
+          var ap = new APlayer({
+            element: document.getElementById("aplayer-iJlRxkWv"),
+            narrow: false,
+            autoplay: false,
+            showlrc: false,
+            music: {
+              title: "我的天空",
+              author: "南征北战nzbz",
+              url: "http://music.163.com/song/media/outer/url?id=28892408.mp3",
+              pic: "http://p1.music.126.net/09FsXnIw8EmAqkb7LwiCOw==/1410673435521373.jpg",
+              lrc: ""
+            }
+          });
+          window.aplayers || (window.aplayers = []);
+          window.aplayers.push(ap);
+        </script>
+<h3 id="写在前面："><a href="#写在前面：" class="headerlink" title="写在前面："></a>写在前面：</h3><h4 id="About："><a href="#About：" class="headerlink" title="About："></a>About：</h4><p>这是一篇关于SDNUOJ题目分类的文章，内容是各题目的难度标记及题目分类。以下是几个关于对这篇文章的疑问，大家有什么疑问可以在文章最下面留言或者直接联系我，我会一一解答(如果看到的话)。</p>
+<h4 id="Q-amp-A："><a href="#Q-amp-A：" class="headerlink" title="Q&amp;A："></a>Q&amp;A：</h4><p>Q：为什么要写这样一篇文章？</p>
+<p>A：自己刚入坑时不会的太多而且一直找不到合适的做题顺序，<del>如无头苍蝇一般，其中尝试各种道路便浪费了好多时间。</del>入坑入得很难受。所以现在要写这样一篇文章，主要是<strong>帮助刚入坑的萌新，能让你们有个良好的入坑体验</strong>。至于入坑成功后的路，就需要你们自己走了。</p>
+<p>Q：啊啊啊，为什么不早写呢？我大一上学期都结束了。</p>
+<p>A：其实自己在大一省赛结束后就想写了，因为那时简单题目就已经被solve的差不多了，然后由于感觉这事并不紧急，就一拖再拖，加上有<a href="https://blog.csdn.net/lmhacm/article/details/52851910" target="_blank" rel="noopener">SDNU作弊码</a>的存在，<del>感觉自己再整理一遍有些“抢生意”的感觉，</del>再加上后面<a href="https://blog.csdn.net/lmhacm/article/details/78416942" target="_blank" rel="noopener">作弊码的完善</a>，这件事就搁浅了。</p>
+<p>Q：那为什么现在要写了？</p>
+<p>A：<del>因为感觉作弊码写的不好，而且作弊码的作者码风…… &amp;&amp; 部分题解并不好，不适合作为教程。</del>咳咳，这个嘛，一方面是兑现去年9月份(捂脸)对教练的承诺，为SDNU-ACM的发展贡献一份自己的力量——帮助萌新入门；另一方面自己期末考完试早早结束暂时没做其他事，后面也没课了，整理这个的同时也可以回忆一下自己的大学生活。</p>
+<p>Q：感觉好棒(×)，会不会写关于其他OJ的类似文章呢？</p>
+<p>A：不会。。自己太菜了，也就能水水本校OJ。不过已经有了很多其他OJ的类似文章了，如<a href="https://www.zhihu.com/question/23148377/answer/36824071" target="_blank" rel="noopener">POJ的题目分类</a>，<a href="http://fastvj.rainng.com/article/371" target="_blank" rel="noopener">kuangbin专题一览</a>，<a href="https://blog.csdn.net/CreationAugust/article/details/51387623" target="_blank" rel="noopener">BZOJ一句话题解</a>，<a href="http://codeforces.com/problemset?tags=dp" target="_blank" rel="noopener">Codeforces自带的分类功能</a>……</p>
+<p><del>Q：阳神你真帅</del></p>
+<p><del>A：废话，还用你说</del></p>
+<h4 id="最后附自拍一张"><a href="#最后附自拍一张" class="headerlink" title="最后附自拍一张"></a>最后附自拍一张</h4><img src="/sdnuoj-problem-categories/自拍.png" title="自拍">
+<h3 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h3><h4 id="几点注意事项："><a href="#几点注意事项：" class="headerlink" title="几点注意事项："></a>几点注意事项：</h4><ul>
+<li><p>这里按照题目顺序进行整理，格式为<code>题目序号、【难度】 题目类型 (特别标记)</code></p>
+</li>
+<li><p>难度针对<strong>萌新</strong>分级为<code>【入门】、【初级】、【中等】、【困难】</code><del>对柳总这样的dalao来说都是【入门】QAQ</del>。</p>
+</li>
+<li><p>这以后你就可以根据自己的需求<code>Ctrl + F</code>搜索你想要的难度 || 类型的题目进行AC了。</p>
+</li>
+<li><p>因为是个人整理嘛，所以可能在题目难度的感觉上及tags的标记上不是很准确，有疑问的欢迎与我交流，希望这篇文章在大家的共同努力下越来越完善（づ￣3￣）づ╭❤～。</p>
+</li>
+</ul>
+<h4 id="第一页："><a href="#第一页：" class="headerlink" title="第一页："></a>第一页：</h4><p>1000 ~ 1009、【入门】 输入输出练习 + 循环语句 + 读到文件结束</p>
+<p>1010、【入门】 打印图形 (初学者的第一个槛，一定要自己写出来)</p>
+<p>1011、【中等】 排列组合 (第二类stirling数)</p>
+<p>1012、【初级】 结构体排序</p>
+<p>1013、【初级】 贪心</p>
+<p>1014、【入门】 数组 + 循环语句</p>
+<p>1015、【中等】 DFS</p>
+<p>1016、【中等】 思维 || 并查集</p>
+<p>1017、【入门】 贪心</p>
+<p>1018、【入门】 模拟</p>
+<p>1019、【初级】 模拟</p>
+<p>1020、【入门】 选择语句</p>
+<p>1021、【入门】 模拟</p>
+<p>1022、【困难】 DFS</p>
+<p>1023、【入门】 贪心</p>
+<p>1024、【入门】 模拟 (1014简化版)</p>
+<p>1025、【初级】 DFS || BFS</p>
+<p>1026、【中等】 贪心 (仔细读题)</p>
+<p>1027、【中等】 BFS (1025升级版)</p>
+<p>1028、【初级】 结构体排序</p>
+<p>1029、【中等】 动态规划</p>
+<p>1030、【困难】 最短路</p>
+<p>1031、【困难】 拓扑排序</p>
+<p>1032、【中等】 双线程DP</p>
+<p>1033、【初级】 背包</p>
+<p>1034、【入门】 同1020</p>
+<p>1035、【入门】 模拟 || 规律</p>
+<p>1036、【入门】 浮点数处理</p>
+<p>1037、【入门】 模拟</p>
+<p>1038、【初级】 递推</p>
+<p>1039、【入门】 递推</p>
+<p>1040、【初级】 DP之LIS</p>
+<p>1041 ~ 1042、【入门】 模拟</p>
+<p>1043、【初级】 背包</p>
+<p>1044、【中等】 DP</p>
+<p>1045、【中等】 DP</p>
+<p>1046、【入门】 模拟</p>
+<p>1047、【中等】 模拟</p>
+<p>1048、【中等】 DP</p>
+<p>1049 ~ 1055、【入门】 模拟</p>
+<p>1056、【初级】 快速幂</p>
+<p>1057、【初级】 模拟 (可练习vector用法)</p>
+<p>1058、【初级】 模拟 (可练习map用法)</p>
+<p>1059、【入门】 模拟</p>
+<p>1060、【入门】 模拟 || 排序</p>
+<p>1061、【初级】 背包</p>
+<p>1062、【中等】 矩阵快速幂 (模板题)</p>
+<p>1063、【困难】 模拟 + LCA</p>
+<p>1064、【入门】 模拟</p>
+<p>1065、【入门】 模拟</p>
+<p>1066、【入门】 排序</p>
+<p>1067 ~ 1070、【入门】 模拟</p>
+<p>1071 ~ 1074、【入门】 递归</p>
+<p>1076、【初级】 并查集</p>
+<p>1077、【初级】 背包</p>
+<p>1078、【中等】 并查集</p>
+<p>1079、【入门】 模拟</p>
+<p>1080、【入门】 数学</p>
+<p>1081、【初级】 快速幂</p>
+<p>1082、【初级】 规律</p>
+<p>1083、【入门】 规律 (递归即可AC)</p>
+<p>1084、【初级】 规律 (需递推才可AC)</p>
+<p>1085、【中等】 规律 (需矩阵快速幂)</p>
+<p>1086、【中等】 BFS</p>
+<p>1087、【中等】 离散化 + DP</p>
+<p>1088、【初级】 欧拉路</p>
+<p>1089、【初级】 拓扑排序</p>
+<p>1090、【入门】 模拟</p>
+<p>1091、【初级】 贪心</p>
+<p>1092、【入门】 模拟</p>
+<p>1093 ~ 1094、【初级】 结构体排序</p>
+<p>1095 ~ 1096、【入门】 模拟</p>
+<p>1097、【初级】 LCM</p>
+<p>1098 ~ 1101、【初级】 字符串</p>
+<h4 id="第二页："><a href="#第二页：" class="headerlink" title="第二页："></a>第二页：</h4><p>1102、【初级】 模拟</p>
+<p>1103、【初级】 排列组合</p>
+<p>1104、【初级】 结构体排序</p>
+<p>1105、【入门】 数学</p>
+<p>1106、【入门】 模拟</p>
+<p>1107、【初级】 贪心</p>
+<p>1108 ~ 1109、【入门】 模拟</p>
+<p>1110 ~ 1111、【中等】 模拟</p>
+<p>1112、【入门】 同1020</p>
+<p>1113、【初级】 模拟 (高精度)</p>
+<p>1114 ~ 1115、【初级】 模拟</p>
+<p>1116、【中等】 AC自动机</p>
+<p>1117、【困难】 高精度</p>
+<p>1118、【困难】 AC自动机 (模板题)</p>
+<p>1119、【初级】 模拟</p>
+<p>1120、【入门】 模拟</p>
+<p>1121 ~ 1127、【初级】 模拟</p>
+<p>1128 ~ 1130、【困难】 SDNU ACM-ICPC 2013省队选拔赛</p>
+<p>1134、【困难】 Floyd闭包</p>
+<p>1135 ~ 1144、【初级 + 中等 + 困难】 山东省第一届ACM大学生程序设计竞赛</p>
+<p>1145 ~ 1152、【初级 + 中等 + 困难】 Mid-Central USA 2012</p>
+<p>1153 ~ 1160、【初级 + 中等 + 困难】 Mid-Central USA 2011</p>
+<p>1161 ~ 1162、【中等】 模拟</p>
+<p>1163、【入门】 模拟</p>
+<p>1164 ~ 1165、【困难】 思维 模拟</p>
+<p>1166 ~ 1169、【入门 + 中等】 NOIP 2004 普及组</p>
+<p>1170 ~ 1171、【入门 + 中等 + 困难】 NOIP 2004 提高组</p>
+<p>1174 ~ 1177、【入门 + 初级 + 中等 + 困难】 NOIP 2006 普及组</p>
+<p>1178 ~ 1181、【中等 + 困难】 NOIP 2006 提高组</p>
+<p>1182 ~ 1184、【初级 + 中等】 NOIP 2007 普及组</p>
+<p>1185 ~ 1188、【初级 + 困难】 NOIP 2007 提高组</p>
+<p>1189 ~ 1191、【初级 + 困难】 NOIP 2008 普及组</p>
+<p>1192 ~ 1195、【初级 + 中等 + 困难】 NOIP 2008 提高组</p>
+<p>1196、【困难】 矩阵快速幂</p>
+<p>1197、【困难】 思维</p>
+<p>1198、【困难】 DP</p>
+<p>1199、【入门】 数学</p>
+<h4 id="第三页："><a href="#第三页：" class="headerlink" title="第三页："></a>第三页：</h4><p>1200、【中等】 模拟 || 中缀转后缀</p>
+<p>1201、【初级】 模拟</p>
+<p>1202、【初级】 规律</p>
+<p>1203、【初级】 模拟</p>
+<p>1204、【初级】 规律</p>
+<p>1205、【入门】 递推</p>
+<p>1206、【初级】 思维</p>
+<p>1207 ~ 1208、【中等】 模拟</p>
+<p>1209、【初级】 排序 + 去重 (可练习set用法)</p>
+<p>1210、【初级】 排序 (可练习stack用法)</p>
+<p>1211、【初级】 进制转换</p>
+<p>1212、【入门】 判断升序</p>
+<p>1213、【中等】 模拟</p>
+<p>1214 ~ 1216、【入门】 模拟</p>
+<p>1217、【初级】 并查集 (模板题)</p>
+<p>1218、【初级】 最小生成树 (模板题)</p>
+<p>1219、【入门】 模拟</p>
+<p>1220、【中等】 BFS记录路径</p>
+<p>1221、【初级】 DP (LIS模板题)</p>
+<p>1222、【困难】 KMP</p>
+<p>1223 ~ 1224、【中等】 最短路</p>
+<p>1225、【中等】 数学</p>
+<p>1226、【困难】 数学 (扩展欧几里得)</p>
+<p>1227 ~ 1228、【中等】 数学</p>
+<p>1229、【中等】 最小生成树 (稠密图用Prim)</p>
+<p>1230、【困难】 并查集</p>
+<p>1231、【入门】 输出</p>
+<p>1232、【初级】 模拟</p>
+<p>1233、【???】 隐藏题目</p>
+<p>1234、【中等】 贪心</p>
+<p>1235 ~ 1238、【???】 隐藏题目</p>
+<p>1239、【中等】 数学 (线性筛)</p>
+<p>1240 ~ 1244、【中等 + 困难】 17新生期末赛部分题目</p>
+<p>1245、【初级】 快速幂</p>
+<p>1246 ~ 1252、【初级 + 中等 + 困难】 山东省第九届acm大学程序设计竞赛山师选拔赛第一场部分题目 <a href="https://alberts97.github.io/sdnu-2018-1/">(题解)</a></p>
+<p>1253 ~ 1261、【初级 + 中等 + 困难】 山东省第九届acm大学程序设计竞赛山师选拔赛第二场部分题目 <a href="https://alberts97.github.io/sdnu-2018-2/">(题解)</a></p>
+<p>1262 ~ 1266、【???】 隐藏题目</p>
+<p>1267、【初级】 模拟</p>
+<p>1268、【初级】 链表 || 结构体排序</p>
+<p>1269、【入门】 模拟</p>
+<p>1270、【中等】 思维</p>
+<p>1271、【初级】 模拟</p>
+<p>1272、【初级】 思维</p>
+<p>1273、【中等】 DP</p>
+<p>1274 ~ 1277、【入门】 模拟</p>
+<p>1278、【初级】 排序</p>
+<p>1279、【入门】 模拟</p>
+<p>1280 ~ 1281、【初级】 模拟</p>
+<p>1282、【中等】 数学</p>
+<p>1283、【初级】 规律</p>
+<p>1284、【中等】 模拟</p>
+<p>1285、【初级】 规律</p>
+<p>1286、【初级】 数学 (素数)</p>
+<p>1287、【初级】 数学 (欧拉函数)</p>
+<p>1288 ~ 1289、【困难】 ???</p>
+<p>1290、【中等】 模拟</p>
+<p>1291、【困难】 ???</p>
+<p>1292、【初级】 DP (LIS)</p>
+<p>1293 ~ 1294、【中等】 规律</p>
+<p>1295、【困难】 ???</p>
+<p>1296、【困难】 模拟</p>
+<p>1297 ~ 1299、【困难】 ???</p>
+<h4 id="第四页："><a href="#第四页：" class="headerlink" title="第四页："></a>第四页：</h4><p>1300、【中等】 规律</p>
+<p>1301、【初级】 模拟 (高精度)</p>
+<p>1302、【初级】 规律</p>
+<p>1303、【初级】 模拟 (高精度)</p>
+<p>1304、【中等】 规律</p>
+<p>1305、【中等】 模拟</p>
+<p>1306、【初级】 模拟</p>
+<p>1307 ~ 1308、【困难】 ???</p>
+<p>1309、【入门】 数学</p>
+<p>1310、【初级】 线段合并</p>
+<p>1311、【初级】 计算组合数</p>
+<p>1312、【初级】 模拟 (摩斯密码转换)</p>
+<p>1313、【困难】 规律 + 矩阵快速幂</p>
+<p>1314、【初级】 规律</p>
+<p>1315、【???】 隐藏题目</p>
+<p>1316、【初级】 DFS || 打表</p>
+<p>1317、【初级】 模拟</p>
+<p>1318、【初级】 直接做 || 数位DP</p>
+<p>1319 ~ 1320、【中等】 数学 概率期望</p>
+<p>1321、【入门】 C语言</p>
+<p>1322、【初级】 数学 概率</p>
+<p>1323 ~ 1329、【困难】 数学</p>
+<p>1330、【初级+】 DP</p>
+<p>1331、【初级+】 二分</p>
+<p>1332、【初级】 模拟</p>
+<p>1333 ~ 1340、【中等 + 困难】 某场选拔赛题目</p>
+<p>1341、【初级】 模拟 日期转换</p>
+<p>1342 ~ 1348【???】 隐藏题目</p>
+<p>1349、【初级】 快速幂</p>
+<p>1350、【初级】 区间覆盖</p>
+<p>1351、【初级】 并查集</p>
+<p>1352、【困难】 ???</p>
+<p>1353、【入门】 简单计算</p>
+<p>1354、【初级】 gcd</p>
+<p>1355、【???】 隐藏题目</p>
+<p>1356 ~ 1363、【入门 + 初级】 新生周赛题目</p>
+<p>1364 ~ 1369、【初级 + 中等 + 困难】 NOIP2014提高组</p>
+<p>1370 ~ 1374、【中等 + 困难】 Waterloo local 2000.09.23</p>
+<p>1375 ~ 1379、【初级 + 困难】 Waterloo local 2000.09.30</p>
+<p>1380 ~ 1384、【初级 + 困难】 Waterloo local 2001.01.27</p>
+<p>1385 ~ 1389、【中等 + 困难】 ???</p>
+<p>1390 ~ 1403、【困难】 ???</p>
+<h4 id="第五页："><a href="#第五页：" class="headerlink" title="第五页："></a>第五页：</h4><p>1401 ~ 1482、【入门 + 初级 + 中等 + 困难】 蓝桥杯往年试题</p>
+<p>1483 ~ 1490、【初级 + 中等 + 困难】 山东省第八届acm大学程序设计竞赛山师选拔赛第一场 <a href="https://alberts97.github.io/sdnu-2017-3/">题解</a></p>
+<p>1491、【困难】 DP</p>
+<p>1492 ~ 1501、【初级 + 中等 + 困难】 山东省第八届acm大学程序设计竞赛山师选拔赛第二场 <a href="https://alberts97.github.io/sdnu-2017-4/">题解</a></p>
+<h4 id="第六页："><a href="#第六页：" class="headerlink" title="第六页："></a>第六页：</h4><p>1502、【中等】 DP (状压DP模板)</p>
+<p>1503 ~ 1514、【初级 + 中等 + 困难】 山东省第七届acm大学程序设计竞赛</p>
+<p>1515 ~ 1518、【入门 + 初级】 山东省第八届acm大学程序设计竞赛赛前娱乐</p>
+<p>1520、【初级】 背包 (多重背包)</p>
+<p>1521、【入门】 排序</p>
+<p>1522、【中等】 数学 (线性筛)</p>
+<p>1523、【初级】 快速幂 || for循环</p>
+<p>1524、【???】 隐藏题目</p>
+<p>1525、【初级】 次小生成树模板</p>
+<p>1526、【困难】 贪心</p>
+<p>1527、【中等】 打表</p>
+<p>1528、【初级】 DFS枚举答案 || 手推</p>
+<p>1529、【困难】 数学 (容斥)</p>
+<p>1530、【入门】 return 0;</p>
+<p>1531、【困难】 FFT</p>
+<p>1532、【困难】 NNT</p>
+<p>1533、【初级】 模拟</p>
+<p>1534 ~ 1543、【入门 + 初级 + 中等 + 困难】 18期末总结赛部分题目 (<a href="https://alberts97.github.io/sdnu-2018-4/">题解</a>)</p>
+<h3 id="END："><a href="#END：" class="headerlink" title="END："></a>END：</h3><p>回首大学里已经过去的两年半的时间，自己的大一过的还是很满意的，虽然那时的付出没能得到即时的反馈，但我可以毫不客气的说，后面的惊喜几乎都是那一年的付出所埋下的铺垫。从大二开始，迷茫犹豫的次数太多，在反复试错的过程中失去了很多本可以变得更好的机会。大三的这一学期尝试着弥补，虽然有所收获，但想想大二废掉的一年总是觉得很遗憾。</p>
+<p>有时也总想着如果能回到过去重来一遍该多好，可是就算时光可以倒流，自己也还是会犯同样的错误，到最后还是过着和现在一样的生活，不是吗？</p>
+<p>如果你看到了这里，那恭喜你，你将获得我最想和两年前的我说的一句话——“<strong>不要等没机会搞acm的时候，再后悔没有全身心的投入。</strong>”</p>
+<p>最后，就以泰戈尔诗句作为结尾好了——“<strong>只管走过去，不必逗留着采了花朵来保存，因为一路上花朵自会继续开放的。</strong>”</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.png" alt="Albert_s WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.jpg" alt="Albert_s Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Albert_s
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://alberts97.github.io/sdnuoj-problem-categories/" title="SDNUOJ题目分类【Overview】">https://alberts97.github.io/sdnuoj-problem-categories/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SDNU/" rel="tag"># SDNU</a>
+          
+            <a href="/tags/Memory/" rel="tag"># Memory</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/sdnu-2018-4/" rel="next" title="SDNU ACM-ICPC 2018 Final Summary Contest(12-16)【解题报告】">
+                <i class="fa fa-chevron-left"></i> SDNU ACM-ICPC 2018 Final Summary Contest(12-16)【解题报告】
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+
+    </footer>
+  </div>
+
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+
+
+      
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MTA2Ni8xNzU5MQ=="></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/Photo.jpg" alt="Albert_s">
+          <p class="site-author-name" itemprop="name">Albert_s</p>
+           
+              <p class="site-description motion-element" itemprop="description">孤勇之后 世界尽在眼前</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Alberts97" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=294668255&site=qq&menu=yes" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                    
+                      QQ
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:294668255@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/young-1-17-84" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      Zhihu
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-link"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.rainng.com/" title="Azure99" target="_blank">Azure99</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://crazyforsaken.com/" title="Forsaken" target="_blank">Forsaken</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.skji.net/" title="E6ther" target="_blank">E6ther</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面："><span class="nav-number">1.</span> <span class="nav-text">写在前面：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#About："><span class="nav-number">1.1.</span> <span class="nav-text">About：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-amp-A："><span class="nav-number">1.2.</span> <span class="nav-text">Q&amp;A：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最后附自拍一张"><span class="nav-number">1.3.</span> <span class="nav-text">最后附自拍一张</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正文："><span class="nav-number">2.</span> <span class="nav-text">正文：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#几点注意事项："><span class="nav-number">2.1.</span> <span class="nav-text">几点注意事项：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第一页："><span class="nav-number">2.2.</span> <span class="nav-text">第一页：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二页："><span class="nav-number">2.3.</span> <span class="nav-text">第二页：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三页："><span class="nav-number">2.4.</span> <span class="nav-text">第三页：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四页："><span class="nav-number">2.5.</span> <span class="nav-text">第四页：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五页："><span class="nav-number">2.6.</span> <span class="nav-text">第五页：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第六页："><span class="nav-number">2.7.</span> <span class="nav-text">第六页：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#END："><span class="nav-number">3.</span> <span class="nav-text">END：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Albert_s</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  
+  
+</body>
+</html>
